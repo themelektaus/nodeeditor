@@ -126,12 +126,16 @@ namespace NodeEditor
             openGraphDialog = Instantiate(openGraphDialogPrefab, canvas.transform);
             if (openGraphDialog.TryGetComponent(out OpenGraphDialog _openGraphDialog))
             {
-                _openGraphDialog.graphList.onOpen.AddListener(Open);
+                _openGraphDialog.graphList.onOpen.AddListener(guid =>
+                {
+                    _openGraphDialog.onDestroy += () => Open(guid);
+                    _openGraphDialog.Stop();
+                });
                 
                 _openGraphDialog.cancelButton.onClick.AddListener(() =>
                 {
-                    Destroy(openGraphDialog);
-                    Destroy(gameObject);
+                    _openGraphDialog.onDestroy += () => Destroy(gameObject);
+                    _openGraphDialog.Stop();
                 });
             }
 
