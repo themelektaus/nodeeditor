@@ -32,6 +32,10 @@ PrefabInstance:
       propertyPath: buttonIcon
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: buttonText
+      value: EDIT
+      objectReference: {fileID: 0}
     - target: {fileID: 6382499618898546479, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
       propertyPath: m_text
       value: EDIT
@@ -118,6 +122,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7017937224272757779, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900381246292473081, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -361,6 +369,10 @@ PrefabInstance:
     - target: {fileID: 5399361645513277289, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399361645513277290, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5399361645513277290, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
       propertyPath: m_Name

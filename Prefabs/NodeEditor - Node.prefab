@@ -182,14 +182,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff97be92bead9824f94ea750d5af9bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contextManager: {fileID: 0}
-  itemParent: {fileID: 0}
-  useIn3D: 0
   contexItems:
   - itemText: Connect
     itemIcon: {fileID: 21300000, guid: b79d63a3accae4d5f931e9406f0e1260, type: 3}
     contextItemType: 0
-    subMenuItems: []
     onClick:
       m_PersistentCalls:
         m_Calls:
@@ -209,7 +205,6 @@ MonoBehaviour:
   - itemText: Delete
     itemIcon: {fileID: 21300000, guid: 032f644fc08324ac4ad77ddac86c7e26, type: 3}
     contextItemType: 0
-    subMenuItems: []
     onClick:
       m_PersistentCalls:
         m_Calls:
@@ -455,7 +450,7 @@ GameObject:
   m_Layer: 5
   m_Name: NodeEditor - Node
   m_TagString: Untagged
-  m_Icon: {fileID: 2800000, guid: f87b5805002ec9649bcb1b96d8a16ba9, type: 3}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

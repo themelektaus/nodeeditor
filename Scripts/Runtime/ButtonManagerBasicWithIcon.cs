@@ -10,13 +10,13 @@ using UnityEngine.InputSystem;
 
 namespace NodeEditor
 {
-    [ExecuteInEditMode]
+    [ExecuteAlways]
     [RequireComponent(typeof(Button))]
     public class ButtonManagerBasicWithIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
     {
         // Content
         public Sprite buttonIcon;
-        public string buttonText = "Button";
+        public string buttonText = "BUTTON";
         public UnityEvent clickEvent;
         public UnityEvent hoverEvent;
         public AudioClip hoverSound;
@@ -36,14 +36,14 @@ namespace NodeEditor
         public Color rippleStartColor = new(1, 1, 1, .1568628f);
         public Color rippleTransitionColor = new(1, 1, 1, 0);
 
-        Button buttonVar;
+        Button button;
         bool isPointerOn;
 
         public enum RippleUpdateMode { Normal, UnscaledTime }
 
         void Awake()
         {
-            buttonVar = gameObject.GetComponent<Button>();
+            button = gameObject.GetComponent<Button>();
 
             UpdateUI();
 
@@ -52,7 +52,7 @@ namespace NodeEditor
                 return;
 #endif
 
-            buttonVar.onClick.AddListener(() =>
+            button.onClick.AddListener(() =>
             {
                 if (clickSound)
                     soundSource.PlayOneShot(clickSound);
@@ -104,15 +104,15 @@ namespace NodeEditor
                 return;
 
 #if ENABLE_LEGACY_INPUT_MANAGER
-                CreateRipple(Input.mousePosition);
+            CreateRipple(Input.mousePosition);
 #elif ENABLE_INPUT_SYSTEM
-                CreateRipple(Mouse.current.position.ReadValue());
+            CreateRipple(Mouse.current.position.ReadValue());
 #endif
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (buttonVar.interactable && hoverSound)
+            if (button.interactable && hoverSound)
                 soundSource.PlayOneShot(hoverSound);
 
             hoverEvent.Invoke();

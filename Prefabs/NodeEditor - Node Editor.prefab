@@ -631,13 +631,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 7593356915531855657, guid: 7e6efdaf5dd2c1842852ae47e927c4aa, type: 3}
   - {fileID: 7593356915531855657, guid: 5305c57b618a5dd4fa8234434171743d, type: 3}
-  - {fileID: 0}
-  - {fileID: 7832055118804403432, guid: 83d904dd97b67a14580e80b730e10508, type: 3}
-  - {fileID: 3773566802347290702, guid: 81ef338007777854d87abb3e562a0127, type: 3}
-  - {fileID: 1040000681093783930, guid: 003865a182124424c908a6726f3978da, type: 3}
-  - {fileID: 0}
-  - {fileID: 7593356915531855657, guid: b1987fa9c5408ef40b47f922ac999a1e, type: 3}
-  - {fileID: 7593356915531855657, guid: 722e75b39a9627e4f94ea979692fb507, type: 3}
   nodeParent: {fileID: 6314997801146531957}
   createMenu: {fileID: 6314997802009588720}
   addIcon: {fileID: 21300000, guid: 66995b6b61aed864daa956ae255d7fee, type: 3}

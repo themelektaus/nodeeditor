@@ -224,6 +224,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5399361645513277290, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399361645513277290, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
       propertyPath: m_Name
       value: NodeEditor - Node - Proxy
       objectReference: {fileID: 0}

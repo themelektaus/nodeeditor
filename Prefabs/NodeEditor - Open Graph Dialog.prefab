@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 951352f31055aae46b6e9786313c632d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5e16c7aea118d68498053518146c9cf9, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 951352f31055aae46b6e9786313c632d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5e16c7aea118d68498053518146c9cf9, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -716,7 +716,7 @@ MonoBehaviour:
   soundSource: {fileID: 0}
   rippleParent: {fileID: 114082748318256401}
   rippleUpdateMode: 1
-  rippleShape: {fileID: 21300000, guid: d25e2ce15dd1c67438e4b70f404fb197, type: 3}
+  rippleShape: {fileID: 21300000, guid: 5e16c7aea118d68498053518146c9cf9, type: 3}
   rippleSpeed: 2.4
   rippleMaxSize: 6
   rippleStartColor: {r: 1, g: 1, b: 1, a: 0.1568628}
@@ -1242,7 +1242,7 @@ GameObject:
   m_Layer: 5
   m_Name: NodeEditor - Open Graph Dialog
   m_TagString: Untagged
-  m_Icon: {fileID: 2800000, guid: f87b5805002ec9649bcb1b96d8a16ba9, type: 3}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1961,7 +1961,7 @@ MonoBehaviour:
   soundSource: {fileID: 0}
   rippleParent: {fileID: 1026355146711287497}
   rippleUpdateMode: 1
-  rippleShape: {fileID: 21300000, guid: d25e2ce15dd1c67438e4b70f404fb197, type: 3}
+  rippleShape: {fileID: 21300000, guid: 5e16c7aea118d68498053518146c9cf9, type: 3}
   rippleSpeed: 2.4
   rippleMaxSize: 6
   rippleStartColor: {r: 1, g: 1, b: 1, a: 0.1568628}
