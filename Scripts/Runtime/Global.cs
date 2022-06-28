@@ -56,7 +56,7 @@ namespace NodeEditor
 
             public static StringList GetGraphGUIDs()
             {
-                return JsonUtility.FromJson<StringList>(PlayerPrefs.GetString(RegistryKey.GraphGUIDs()));
+                return JsonUtility.FromJson<StringList>(PlayerPrefs.GetString(RegistryKey.GraphGUIDs())) ?? new();
             }
 
             public static void SetGraphGUIDs(StringList stringList)
@@ -108,7 +108,5 @@ namespace NodeEditor
                 SetGraphGUIDs(guids);
             }
         }
-
-        public const string HELLO_WORLD_GRAPH_DATA_JSON = "{\"lastNodeId\":4,\"nodeDataList\":[{\"id\":1,\"type\":\"Start\",\"position\":{\"x\":-892,\"y\":102},\"booleanVariables\":[],\"integerVariables\":[],\"floatVariables\":[],\"stringVariables\":[],\"objectVariables\":[]},{\"id\":2,\"type\":\"Message\",\"position\":{\"x\":-318,\"y\":-27},\"booleanVariables\":[],\"integerVariables\":[],\"floatVariables\":[],\"stringVariables\":[{\"name\":\"text\",\"data\":[\"Hello World!\"]}],\"objectVariables\":[]},{\"id\":3,\"type\":\"Options\",\"position\":{\"x\":351,\"y\":-68},\"booleanVariables\":[],\"integerVariables\":[],\"floatVariables\":[],\"stringVariables\":[{\"name\":\"options\",\"data\":[\"Done\"]}],\"objectVariables\":[]},{\"id\":4,\"type\":\"Exit\",\"position\":{\"x\":839,\"y\":18},\"booleanVariables\":[],\"integerVariables\":[],\"floatVariables\":[],\"stringVariables\":[],\"objectVariables\":[]}],\"connectionDataList\":[{\"sourceNodeDataId\":2,\"targetNodeDataId\":3},{\"sourceNodeDataId\":3,\"targetNodeDataId\":4},{\"sourceNodeDataId\":1,\"targetNodeDataId\":2}]}";
     }
 }

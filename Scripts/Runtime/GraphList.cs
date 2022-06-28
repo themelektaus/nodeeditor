@@ -94,15 +94,7 @@ namespace NodeEditor
 
         StringList LoadGraphGUIDs()
         {
-            var guids = Global.Prefs.GetGraphGUIDs();
-            if (guids.items.Count == 0)
-            {
-                var guid = Global.Prefs.CreateGraph("Hello World!", Global.HELLO_WORLD_GRAPH_DATA_JSON);
-                guids.items.Add(guid);
-                Global.Prefs.SetActiveGraphGUID(guid);
-                Global.Prefs.SetGraphGUIDs(guids);
-            }
-            return guids;
+            return Global.Prefs.GetGraphGUIDs();
         }
     }
 }
