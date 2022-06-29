@@ -92,7 +92,7 @@ namespace NodeEditor
 
         void Load()
         {
-            graphData = Global.Prefs.GetGraphData(guidStack.Peek());
+            graphData = Global.Storage.GetGraphData(guidStack.Peek());
 
             if (openGraphDialog)
                 Destroy(openGraphDialog);
@@ -232,7 +232,7 @@ namespace NodeEditor
                     node.Write();
             }
 
-            Global.Prefs.SetGraphData(guidStack.Peek(), graphData);
+            Global.Storage.SetGraphData(guidStack.Peek(), graphData);
         }
 
         public void AddNode(string type)

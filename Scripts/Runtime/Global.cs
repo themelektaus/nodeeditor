@@ -32,7 +32,7 @@ namespace NodeEditor
             }
         }
 
-        public static class Prefs
+        public static class Storage
         {
             public static GraphData GetGraphData(string guid)
             {

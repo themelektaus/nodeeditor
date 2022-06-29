@@ -14,12 +14,7 @@ namespace NodeEditor
         {
             node = GetComponent<Node>();
 
-            var guidList = Global.Prefs.GetGraphGUIDs();
-            
-            editButton.onClick.AddListener(() =>
-            {
-                node.data.nodeEditor.Open(guidList.items[dropdown.GetIndex()]);
-            });
+            var guidList = Global.Storage.GetGraphGUIDs();
 
             dropdown.dropdownItems.Clear();
 
@@ -28,7 +23,7 @@ namespace NodeEditor
                 var _guid = guid;
                 dropdown.dropdownItems.Add(new()
                 {
-                    itemName = Global.Prefs.GetGraphTitle(_guid)
+                    itemName = Global.Storage.GetGraphTitle(_guid)
                 });
             }
 
@@ -42,6 +37,11 @@ namespace NodeEditor
             {
                 node.data.SetString("guid", guidList.items[dropdown.GetIndex()]);
             };
+
+            editButton.onClick.AddListener(() =>
+            {
+                node.data.nodeEditor.Open(guidList.items[dropdown.GetIndex()]);
+            });
         }
     }
 }

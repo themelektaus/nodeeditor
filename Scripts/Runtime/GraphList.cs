@@ -19,7 +19,7 @@ namespace NodeEditor
         {
             createButton.onClick.AddListener(() =>
             {
-                Global.Prefs.CreateGraph("New Graph");
+                Global.Storage.CreateGraph("New Graph");
                 Refresh();
             });
         }
@@ -47,7 +47,7 @@ namespace NodeEditor
 
             var guids = LoadGraphGUIDs();
 
-            var activeGuid = Global.Prefs.GetActiveGraphGUID();
+            var activeGuid = Global.Storage.GetActiveGraphGUID();
 
             foreach (var guid in guids.items)
             {
@@ -56,10 +56,10 @@ namespace NodeEditor
                 var itemGameObject = Instantiate(itemPrefab.gameObject, listTransform);
                 
                 var newItem = itemGameObject.GetComponent<GraphListItem>();
-                newItem.inputField.inputText.text = Global.Prefs.GetGraphTitle(guid);
+                newItem.inputField.inputText.text = Global.Storage.GetGraphTitle(guid);
                 newItem.inputField.inputText.onValueChanged.AddListener((UnityAction<string>) (title =>
                 {
-                    Global.Prefs.SetGraphTitle(guid, title);
+                    Global.Storage.SetGraphTitle(guid, title);
                 }));
                 newItem.inputField.UpdateStateInstant();
 
@@ -71,7 +71,7 @@ namespace NodeEditor
                 {
                     newItem.activateButton.onClick.AddListener(() =>
                     {
-                        Global.Prefs.SetActiveGraphGUID(guid);
+                        Global.Storage.SetActiveGraphGUID(guid);
                         Refresh();
                     });
                 }
@@ -83,7 +83,7 @@ namespace NodeEditor
 
                 newItem.deleteButton.onClick.AddListener(() =>
                 {
-                    Global.Prefs.DeleteGraph(guid);
+                    Global.Storage.DeleteGraph(guid);
                     guids = LoadGraphGUIDs();
                     Refresh();
                 });
@@ -94,7 +94,7 @@ namespace NodeEditor
 
         StringList LoadGraphGUIDs()
         {
-            return Global.Prefs.GetGraphGUIDs();
+            return Global.Storage.GetGraphGUIDs();
         }
     }
 }
