@@ -271,7 +271,7 @@ namespace NodeEditor.DataRenderer2D.Editors
                 Handles.color = Color.black;
                 if (
                     Handles.Button(
-                        _owner.transform.TransformPoint(last + direction * m_distanceBuffer * 2),
+                        _owner.transform.TransformPoint(last + m_distanceBuffer * 2 * direction),
                         _owner.transform.rotation,
                         m_sizeBuffer,
                         m_sizeBuffer,

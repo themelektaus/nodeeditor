@@ -29,10 +29,11 @@ namespace NodeEditor
             transform.localScale = Vector3.Lerp(transform.localScale, new(maxSize, maxSize, maxSize), deltaTime * speed);
             colorImage.color = Color.Lerp(colorImage.color, transitionColor, deltaTime * speed);
 
-            if (transform.localScale.x >= maxSize * 0.998)
+            if (transform.localScale.x >= maxSize * 0.998f)
             {
                 if (transform.parent.childCount == 1)
                     transform.parent.gameObject.SetActive(false);
+
                 Destroy(gameObject);
             }
         }

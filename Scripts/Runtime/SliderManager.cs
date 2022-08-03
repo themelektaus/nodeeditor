@@ -22,7 +22,6 @@ namespace NodeEditor
 
         // Events
         [System.Serializable] public class SliderEvent : UnityEvent<float> { }
-        [SerializeField] public SliderEvent onValueChanged = new();
         [Space(8)] public SliderEvent sliderEvent;
 
         // Other Variables

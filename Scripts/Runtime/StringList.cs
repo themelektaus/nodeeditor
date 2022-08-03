@@ -11,9 +11,12 @@ namespace NodeEditor
         public string AddGuid()
         {
             string guid;
+
             do guid = Guid.NewGuid().ToString();
             while (items.Contains(guid));
+
             items.Add(guid);
+
             return guid;
         }
     }
