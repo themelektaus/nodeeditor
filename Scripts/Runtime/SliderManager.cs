@@ -19,6 +19,7 @@ namespace NodeEditor
         public bool showValue = true;
         public bool showPopupValue = false;
         public bool useRoundValue = false;
+        public bool usePercentage = false;
 
         // Events
         [System.Serializable] public class SliderEvent : UnityEvent<float> { }
@@ -44,22 +45,22 @@ namespace NodeEditor
 
         public void UpdateUI()
         {
+            float v = mainSlider.value;
+
+            string text;
+
             if (useRoundValue)
-            {
-                if (valueText)
-                    valueText.text = Mathf.Round(mainSlider.value * 1.0f).ToString() + suffix;
-
-                if (popupValueText)
-                    popupValueText.text = Mathf.Round(mainSlider.value * 1.0f).ToString() + suffix;
-
-                return;
-            }
+                text = $"{Mathf.Round(v)}{suffix}";
+            else if (usePercentage)
+                text = $"{Mathf.Round(v * 100)}{suffix}";
+            else
+                text = $"{v:F1}{suffix}";
 
             if (valueText)
-                valueText.text = mainSlider.value.ToString("F1") + suffix;
+                valueText.text = text;
 
             if (popupValueText)
-                popupValueText.text = mainSlider.value.ToString("F1") + suffix;
+                popupValueText.text = text;
         }
 
         public void OnPointerEnter(PointerEventData eventData)

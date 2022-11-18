@@ -1,4 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+
+using TMPro;
+
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+using ContextItem = NodeEditor.ContextMenuContent.ContextItem;
+using ContextItemType = NodeEditor.ContextMenuContent.ContextItemType;
 
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -9,6 +19,8 @@ namespace NodeEditor
     [RequireComponent(typeof(Animator))]
     public class ContextMenuManager : MonoBehaviour
     {
+        static Camera mainCamera => Camera.main;
+
         // Resources
         public GameObject contextContent;
         public GameObject contextButton;
@@ -27,8 +39,7 @@ namespace NodeEditor
         Vector3 contentPos = Vector3.zero;
         Vector3 contextVelocity = Vector3.zero;
 
-        RectTransform contextRect;
-        RectTransform contentRect;
+        Transform itemParent;
 
         [HideInInspector] public bool isOn;
 
@@ -40,40 +51,16 @@ namespace NodeEditor
         {
             mainCanvas = gameObject.GetComponentInParent<Canvas>();
             contextAnimator = gameObject.GetComponent<Animator>();
-            
-            contextRect = gameObject.GetComponent<RectTransform>();
-            contentRect = contextContent.GetComponent<RectTransform>();
+
             contentPos = new Vector3(vBorderTop, hBorderLeft, 0);
             gameObject.transform.SetAsLastSibling();
+
+            itemParent = transform.Find("Content/Item List").transform;
         }
 
         void OnEnable()
         {
             contextAnimator.Play("Start");
-            Init();
-        }
-
-        public void SetContextMenuPosition()
-        {
-#if ENABLE_LEGACY_INPUT_MANAGER
-            cursorPos = Input.mousePosition;
-#elif ENABLE_INPUT_SYSTEM
-            cursorPos = Mouse.current.position.ReadValue();
-#endif
-            contentRect.pivot = new(.5f, .5f);
-
-            if (mainCanvas.renderMode == RenderMode.ScreenSpaceCamera || mainCanvas.renderMode == RenderMode.WorldSpace)
-            {
-                contextRect.position = Camera.main.ScreenToWorldPoint(cursorPos);
-                contextRect.localPosition = new Vector3(contextRect.localPosition.x, contextRect.localPosition.y, 0);
-                contextContent.transform.localPosition = Vector3.SmoothDamp(contextContent.transform.localPosition, contentPos, ref contextVelocity, 0);
-            }
-            else if (mainCanvas.renderMode == RenderMode.ScreenSpaceOverlay)
-            {
-                contextRect.position = cursorPos;
-                contextContent.transform.position = new Vector3(cursorPos.x + contentPos.x, cursorPos.y + contentPos.y, 0);
-            }
-
             Init();
         }
 
@@ -84,6 +71,29 @@ namespace NodeEditor
             contextContent.transform.localScale = scale;
         }
 
+        public void SetContextMenuPosition(Vector2 offset)
+        {
+#if ENABLE_LEGACY_INPUT_MANAGER
+            cursorPos = Input.mousePosition;
+
+#elif ENABLE_INPUT_SYSTEM
+            cursorPos = Mouse.current.position.ReadValue();
+
+#endif
+            float x = offset.x * Screen.width / 1920;
+            float y = offset.y * Screen.height / 1080;
+
+            if (mainCanvas.renderMode == RenderMode.ScreenSpaceCamera || mainCanvas.renderMode == RenderMode.WorldSpace)
+                contextContent.transform.position = mainCamera.ScreenToWorldPoint(cursorPos);
+
+            else if (mainCanvas.renderMode == RenderMode.ScreenSpaceOverlay)
+                contextContent.transform.position = new(cursorPos.x + x, cursorPos.y + y, 0);
+
+            Init();
+        }
+
+        public void OpenContextMenu() => Open();
+
         public void Open()
         {
             Init();
@@ -91,13 +101,67 @@ namespace NodeEditor
             isOn = true;
         }
 
+        public void Open(List<ContextItem> contexItems, Vector2 offset = new())
+        {
+            Close();
+
+            foreach (Transform child in itemParent)
+                Destroy(child.gameObject);
+
+            for (int i = 0; i < contexItems.Count; ++i)
+            {
+                if (contexItems[i].contextItemType == ContextItemType.Button)
+                {
+                    var gameObject = Instantiate(contextButton, Vector3.zero, Quaternion.identity);
+                    gameObject.transform.SetParent(itemParent, false);
+
+                    var setItemText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
+                    var textHelper = contexItems[i].itemText;
+                    setItemText.text = textHelper;
+
+                    var goImage = gameObject.transform.Find("Icon");
+                    var setItemImage = goImage.GetComponent<Image>();
+                    var imageHelper = contexItems[i].itemIcon;
+                    setItemImage.sprite = imageHelper;
+
+                    if (!imageHelper)
+                        setItemImage.color = new();
+
+                    var itemButton = gameObject.GetComponent<Button>();
+                    itemButton.onClick.AddListener(contexItems[i].onClick.Invoke);
+                    itemButton.onClick.AddListener(CloseOnClick);
+                }
+                else if (contexItems[i].contextItemType == ContextItemType.Separator)
+                {
+                    var gameObject = Instantiate(contextSeparator, Vector3.zero, Quaternion.identity);
+                    gameObject.transform.SetParent(itemParent, false);
+                }
+
+                StopCoroutine(nameof(ExecuteAfterTime));
+                StartCoroutine(nameof(ExecuteAfterTime), .01f);
+            }
+
+            SetContextMenuPosition(offset);
+            Open();
+            SetContextMenuPosition(offset);
+        }
+
+        public void CloseOnClick() => Close();
+
         public void Close()
         {
+            if (!isOn)
+                return;
+
             contextAnimator.Play("Menu Out");
             isOn = false;
         }
 
-        public void OpenContextMenu() => Open();
-        public void CloseOnClick() => Close();
+        IEnumerator ExecuteAfterTime(float time)
+        {
+            yield return new WaitForSecondsRealtime(time);
+            itemParent.gameObject.SetActive(false);
+            itemParent.gameObject.SetActive(true);
+        }
     }
 }

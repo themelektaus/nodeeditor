@@ -46,10 +46,10 @@ namespace NodeEditor
 
             public static void SetGraphData(string guid, GraphData graphData)
             {
-                PlayerPrefs.SetString(RegistryKey.Graph(guid), JsonUtility.ToJson(graphData));
+                SetGraphJson(guid, JsonUtility.ToJson(graphData));
             }
 
-            public static void SetGraphJson(string guid, string graphJson)
+            static void SetGraphJson(string guid, string graphJson)
             {
                 PlayerPrefs.SetString(RegistryKey.Graph(guid), graphJson);
             }

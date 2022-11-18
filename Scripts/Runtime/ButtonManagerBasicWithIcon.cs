@@ -14,9 +14,12 @@ namespace NodeEditor
     [RequireComponent(typeof(Button))]
     public class ButtonManagerBasicWithIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
     {
+        [SerializeField] Theme theme;
+
         // Content
         public Sprite buttonIcon;
         public string buttonText = "BUTTON";
+        public int buttonColorIndex;
         public UnityEvent clickEvent;
         public UnityEvent hoverEvent;
         public AudioClip hoverSound;
@@ -28,24 +31,28 @@ namespace NodeEditor
         public AudioSource soundSource;
         public GameObject rippleParent;
 
-        // Ripple
-        public RippleUpdateMode rippleUpdateMode = RippleUpdateMode.UnscaledTime;
-        public Sprite rippleShape;
-        [Range(0.1f, 5)] public float rippleSpeed = 2.4f;
-        [Range(0.5f, 25)] public float rippleMaxSize = 6;
-        public Color rippleStartColor = new(1, 1, 1, .1568628f);
-        public Color rippleTransitionColor = new(1, 1, 1, 0);
+        CanvasGroup canvasGroup;
+        public Button button { get; private set; }
+        public Image image { get; private set; }
 
-        Button button;
-        bool isPointerOn;
+        bool hover;
 
         public enum RippleUpdateMode { Normal, UnscaledTime }
 
         void Awake()
         {
-            button = gameObject.GetComponent<Button>();
+            canvasGroup  = GetComponent<CanvasGroup>();
+            button = GetComponent<Button>();
+            image = GetComponent<Image>();
 
-            UpdateUI();
+            if (normalImage)
+                normalImage.sprite = buttonIcon;
+
+            if (normalText)
+                normalText.text = buttonText;
+
+            if (theme)
+                theme.button.ApplyTo(this);
 
 #if UNITY_EDITOR
             if (!Application.isPlaying)
@@ -56,57 +63,50 @@ namespace NodeEditor
             {
                 if (clickSound)
                     soundSource.PlayOneShot(clickSound);
+
                 clickEvent.Invoke();
             });
 
             if (rippleParent)
             {
-                if (rippleShape)
+                if (theme && theme.button.rippleShape)
+                {
                     rippleParent.SetActive(false);
-                else
-                    Destroy(rippleParent);
+                    return;
+                }
+
+                Destroy(rippleParent);
             }
         }
 
-        void UpdateUI()
+        void Update()
         {
-            if (normalImage)
-                normalImage.sprite = buttonIcon;
-
-            if (normalText)
-                normalText.text = buttonText;
-        }
-
-        void CreateRipple(Vector2 position)
-        {
-            if (!rippleParent)
+            if (!canvasGroup || !button)
                 return;
 
-            rippleParent.SetActive(true);
-            rippleParent.transform.SetAsFirstSibling();
+            if (button.interactable)
+            {
+                canvasGroup.interactable = true;
+                canvasGroup.alpha = 1;
+                return;
+            }
 
-            var rippleGameObject = new GameObject("Ripple");
-            rippleGameObject.AddComponent<Image>().sprite = rippleShape;
-            rippleGameObject.transform.SetParent(rippleParent.transform);
-            rippleGameObject.transform.position = position;
-
-            var ripple = rippleGameObject.AddComponent<Ripple>();
-            ripple.speed = rippleSpeed;
-            ripple.maxSize = rippleMaxSize;
-            ripple.startColor = rippleStartColor;
-            ripple.transitionColor = rippleTransitionColor;
-            ripple.unscaledTime = rippleUpdateMode == RippleUpdateMode.UnscaledTime;
+            canvasGroup.interactable = false;
+            canvasGroup.alpha = .3f;
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (!rippleShape || !isPointerOn)
+            if (!button.interactable || !hover)
+                return;
+
+            if (!theme || theme.button.rippleShape)
                 return;
 
 #if ENABLE_LEGACY_INPUT_MANAGER
-            CreateRipple(Input.mousePosition);
+            theme.button.CreateRipple(rippleParent, Input.mousePosition);
 #elif ENABLE_INPUT_SYSTEM
-            CreateRipple(Mouse.current.position.ReadValue());
+            theme.button.CreateRipple(rippleParent, Mouse.current.position.ReadValue());
 #endif
         }
 
@@ -116,12 +116,12 @@ namespace NodeEditor
                 soundSource.PlayOneShot(hoverSound);
 
             hoverEvent.Invoke();
-            isPointerOn = true;
+            hover = true;
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            isPointerOn = false;
+            hover = false;
         }
     }
 }

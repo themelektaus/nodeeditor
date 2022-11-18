@@ -180,18 +180,7 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5399361646601685191, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
-      propertyPath: m_Color.b
-      value: 0.15686275
-      objectReference: {fileID: 0}
-    - target: {fileID: 5399361646601685191, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
-      propertyPath: m_Color.g
-      value: 0.15686275
-      objectReference: {fileID: 0}
-    - target: {fileID: 5399361646601685191, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
-      propertyPath: m_Color.r
-      value: 0.48235294
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5640317409406334522, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}

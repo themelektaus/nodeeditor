@@ -104,19 +104,21 @@ namespace NodeEditor
 
 
 
-            [Serializable]
-            public class ObjectVariable : Variable<UnityEngine.Object>
-            {
-                public UnityEngine.Object[] data;
-                public override UnityEngine.Object[] values { get => data; set => data = value; }
-            }
+            // MyTODO: Object Variable
 
-            [SerializeField] List<ObjectVariable> objectVariables = new();
+            //[Serializable]
+            //public class ObjectVariable : Variable<UnityEngine.Object>
+            //{
+            //    public UnityEngine.Object[] data;
+            //    public override UnityEngine.Object[] values { get => data; set => data = value; }
+            //}
 
-            public UnityEngine.Object GetObject(string name) => Get<ObjectVariable, UnityEngine.Object>(objectVariables, name);
-            public UnityEngine.Object[] GetObjects(string name) => GetAll<ObjectVariable, UnityEngine.Object>(objectVariables, name);
-            public void SetObject(string name, UnityEngine.Object value) => Set(objectVariables, name, value, true);
-            public void SetObjects(string name, UnityEngine.Object[] values) => SetAll(objectVariables, name, values, true);
+            //[SerializeField] List<ObjectVariable> objectVariables = new();
+
+            //public UnityEngine.Object GetObject(string name) => Get<ObjectVariable, UnityEngine.Object>(objectVariables, name);
+            //public UnityEngine.Object[] GetObjects(string name) => GetAll<ObjectVariable, UnityEngine.Object>(objectVariables, name);
+            //public void SetObject(string name, UnityEngine.Object value) => Set(objectVariables, name, value, true);
+            //public void SetObjects(string name, UnityEngine.Object[] values) => SetAll(objectVariables, name, values, true);
 
 
 

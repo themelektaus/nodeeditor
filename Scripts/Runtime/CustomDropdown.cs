@@ -31,7 +31,6 @@ namespace NodeEditor
         [Range(1, 50)] public int itemPaddingBottom = 8;
         [Range(1, 50)] public int itemPaddingLeft = 8;
         [Range(1, 50)] public int itemPaddingRight = 25;
-        [Range(1, 50)] public int itemSpacing = 8;
         public int selectedItemIndex = 0;
 
         // Animation
@@ -396,7 +395,6 @@ namespace NodeEditor
             if (!itemList)
                 return;
 
-            itemList.spacing = itemSpacing;
             itemList.padding.top = itemPaddingTop;
             itemList.padding.bottom = itemPaddingBottom;
             itemList.padding.left = itemPaddingLeft;
@@ -435,6 +433,7 @@ namespace NodeEditor
         {
             SetText(text);
             this.getDynamicItems = getDynamicItems;
+            SetupDropdown();
         }
 
         public int GetIndex()

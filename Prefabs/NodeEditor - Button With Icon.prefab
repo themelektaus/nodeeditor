@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4768404540454090218}
   - component: {fileID: 5367843865558613611}
   - component: {fileID: 612369412131404406}
+  - component: {fileID: 115277191826953094}
   m_Layer: 5
   m_Name: NodeEditor - Button With Icon
   m_TagString: Untagged
@@ -63,8 +64,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd611441fc6f1f4c9f714fcd4dcbeb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theme: {fileID: 11400000, guid: c81e5faf053844c49b1383b286f4a55b, type: 2}
   buttonIcon: {fileID: 21300000, guid: c07549e02a2d55049906af989d15fe22, type: 3}
   buttonText: BUTTON
+  buttonColorIndex: 0
   clickEvent:
     m_PersistentCalls:
       m_Calls:
@@ -90,12 +93,6 @@ MonoBehaviour:
   normalText: {fileID: 6382499618898546479}
   soundSource: {fileID: 0}
   rippleParent: {fileID: 7900381246292473081}
-  rippleUpdateMode: 1
-  rippleShape: {fileID: 21300000, guid: ec33b29f67465db45aa8df22663e89f5, type: 3}
-  rippleSpeed: 2.4
-  rippleMaxSize: 6
-  rippleStartColor: {r: 1, g: 1, b: 1, a: 0.1568628}
-  rippleTransitionColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &5367843865558613611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +118,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -153,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.5019608, b: 0.9019608, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -170,6 +167,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 12
+--- !u!225 &115277191826953094
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964327234157033066}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2141091207127967356
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +272,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.5
+  m_fontSize: 21
   m_fontSizeBase: 22.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
