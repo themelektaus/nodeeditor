@@ -4,15 +4,11 @@ using System.Collections.Generic;
 using TMPro;
 
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 using ContextItem = NodeEditor.ContextMenuContent.ContextItem;
 using ContextItemType = NodeEditor.ContextMenuContent.ContextItemType;
-
-#if ENABLE_INPUT_SYSTEM
-using UnityEngine.InputSystem;
-#endif
 
 namespace NodeEditor
 {
@@ -21,24 +17,33 @@ namespace NodeEditor
     {
         static Camera mainCamera => Camera.main;
 
-        // Resources
-        public GameObject contextContent;
-        public GameObject contextButton;
-        public GameObject contextSeparator;
+        [FormerlySerializedAs("contextContent")]
+        public GameObject content;
 
-        // Bounds
-        [Range(-50, 50)] public int vBorderTop = -10;
-        [Range(-50, 50)] public int vBorderBottom = 10;
-        [Range(-50, 50)] public int hBorderLeft = 15;
-        [Range(-50, 50)] public int hBorderRight = -15;
+        [FormerlySerializedAs("contextButton")]
+        public GameObject button;
+
+        [FormerlySerializedAs("contextSeparator")]
+        public GameObject separator;
+
+        [FormerlySerializedAs("vBorderTop")]
+        [Range(-50, 50)] public int top = -10;
+
+        [FormerlySerializedAs("vBorderBottom")]
+        [Range(-50, 50)] public int bottom = 10;
+
+        [FormerlySerializedAs("hBorderLeft")]
+        [Range(-50, 50)] public int left = 15;
+
+        [FormerlySerializedAs("hBorderRight")]
+        [Range(-50, 50)] public int right = -15;
 
         Canvas mainCanvas;
-        [System.NonSerialized] public Animator contextAnimator;
+        [System.NonSerialized] public Animator animator;
 
-        Vector3 cursorPos;
-        Vector3 contentPos = Vector3.zero;
-        Vector3 contextVelocity = Vector3.zero;
-
+        Vector3 cursorPosition;
+        Vector3 contentPosition;
+        
         Transform itemParent;
 
         [HideInInspector] public bool isOn;
@@ -50,9 +55,9 @@ namespace NodeEditor
         void Awake()
         {
             mainCanvas = gameObject.GetComponentInParent<Canvas>();
-            contextAnimator = gameObject.GetComponent<Animator>();
+            animator = gameObject.GetComponent<Animator>();
 
-            contentPos = new Vector3(vBorderTop, hBorderLeft, 0);
+            contentPosition = new(top, left, 0);
             gameObject.transform.SetAsLastSibling();
 
             itemParent = transform.Find("Content/Item List").transform;
@@ -60,34 +65,29 @@ namespace NodeEditor
 
         void OnEnable()
         {
-            contextAnimator.Play("Start");
+            animator.Play("Start");
             Init();
         }
 
         void Init()
         {
-            var scale = contextContent.transform.localScale;
+            var scale = content.transform.localScale;
             scale.y = 0;
-            contextContent.transform.localScale = scale;
+            content.transform.localScale = scale;
         }
 
         public void SetContextMenuPosition(Vector2 offset)
         {
-#if ENABLE_LEGACY_INPUT_MANAGER
-            cursorPos = Input.mousePosition;
+            cursorPosition = Input.mousePosition;
 
-#elif ENABLE_INPUT_SYSTEM
-            cursorPos = Mouse.current.position.ReadValue();
-
-#endif
             float x = offset.x * Screen.width / 1920;
             float y = offset.y * Screen.height / 1080;
 
             if (mainCanvas.renderMode == RenderMode.ScreenSpaceCamera || mainCanvas.renderMode == RenderMode.WorldSpace)
-                contextContent.transform.position = mainCamera.ScreenToWorldPoint(cursorPos);
+                content.transform.position = mainCamera.ScreenToWorldPoint(cursorPosition);
 
             else if (mainCanvas.renderMode == RenderMode.ScreenSpaceOverlay)
-                contextContent.transform.position = new(cursorPos.x + x, cursorPos.y + y, 0);
+                content.transform.position = new(cursorPosition.x + x, cursorPosition.y + y, 0);
 
             Init();
         }
@@ -97,7 +97,7 @@ namespace NodeEditor
         public void Open()
         {
             Init();
-            contextAnimator.Play("Menu In");
+            animator.Play("Menu In");
             isOn = true;
         }
 
@@ -112,7 +112,7 @@ namespace NodeEditor
             {
                 if (contexItems[i].contextItemType == ContextItemType.Button)
                 {
-                    var gameObject = Instantiate(contextButton, Vector3.zero, Quaternion.identity);
+                    var gameObject = Instantiate(button);
                     gameObject.transform.SetParent(itemParent, false);
 
                     var setItemText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
@@ -133,7 +133,7 @@ namespace NodeEditor
                 }
                 else if (contexItems[i].contextItemType == ContextItemType.Separator)
                 {
-                    var gameObject = Instantiate(contextSeparator, Vector3.zero, Quaternion.identity);
+                    var gameObject = Instantiate(separator);
                     gameObject.transform.SetParent(itemParent, false);
                 }
 
@@ -153,7 +153,7 @@ namespace NodeEditor
             if (!isOn)
                 return;
 
-            contextAnimator.Play("Menu Out");
+            animator.Play("Menu Out");
             isOn = false;
         }
 

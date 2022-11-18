@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 612369412131404406}
   - component: {fileID: 115277191826953094}
   m_Layer: 5
-  m_Name: NodeEditor - Button With Icon
+  m_Name: NodeEditor - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,9 +65,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theme: {fileID: 11400000, guid: c81e5faf053844c49b1383b286f4a55b, type: 2}
-  buttonIcon: {fileID: 21300000, guid: c07549e02a2d55049906af989d15fe22, type: 3}
-  buttonText: BUTTON
-  buttonColorIndex: 0
+  colorIndex: 0
+  icon: {fileID: 21300000, guid: c07549e02a2d55049906af989d15fe22, type: 3}
+  text: BUTTON
   clickEvent:
     m_PersistentCalls:
       m_Calls:
@@ -87,11 +87,11 @@ MonoBehaviour:
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []
+  soundSource: {fileID: 0}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 0}
-  normalImage: {fileID: 3793306022187086253}
-  normalText: {fileID: 6382499618898546479}
-  soundSource: {fileID: 0}
+  iconImage: {fileID: 3793306022187086253}
+  uiText: {fileID: 6382499618898546479}
   rippleParent: {fileID: 7900381246292473081}
 --- !u!114 &5367843865558613611
 MonoBehaviour:
@@ -115,9 +115,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
+    m_HighlightedColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+    m_PressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+    m_SelectedColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.3, g: 0.3, b: 0.32, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

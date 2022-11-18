@@ -1,37 +1,59 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+
 using TMPro;
+
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
-#if ENABLE_INPUT_SYSTEM
-using UnityEngine.InputSystem;
-#endif
+using Foldout;
 
 namespace NodeEditor
 {
     [ExecuteAlways]
     [RequireComponent(typeof(Button))]
-    public class ButtonManagerBasicWithIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+    public class CustomButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
     {
-        [SerializeField] Theme theme;
+        [FormerlySerializedAs("normalImage")]
+        public Image iconImage;
 
-        // Content
-        public Sprite buttonIcon;
-        public string buttonText = "BUTTON";
-        public int buttonColorIndex;
+        [FormerlySerializedAs("normalText")]
+        public TextMeshProUGUI uiText;
+
+        public GameObject rippleParent;
+
+
+
+        [Foldout("Appearance")]
+
+        [FormerlySerializedAs("buttonColorIndex")]
+        public int colorIndex;
+
+        [FormerlySerializedAs("buttonIcon")]
+        public Sprite icon;
+
+        [FormerlySerializedAs("buttonText")]
+        public string text = "";
+
+
+
+        [Foldout("Events")]
+
         public UnityEvent clickEvent;
         public UnityEvent hoverEvent;
+
+
+
+        [Foldout("Audio")]
+
+        public AudioSource soundSource;
         public AudioClip hoverSound;
         public AudioClip clickSound;
 
-        // Resources
-        public Image normalImage;
-        public TextMeshProUGUI normalText;
-        public AudioSource soundSource;
-        public GameObject rippleParent;
 
-        CanvasGroup canvasGroup;
+
+        public CanvasGroup canvasGroup { get; private set; }
         public Button button { get; private set; }
         public Image image { get; private set; }
 
@@ -45,14 +67,14 @@ namespace NodeEditor
             button = GetComponent<Button>();
             image = GetComponent<Image>();
 
-            if (normalImage)
-                normalImage.sprite = buttonIcon;
+            if (iconImage)
+                iconImage.sprite = icon;
 
-            if (normalText)
-                normalText.text = buttonText;
+            if (uiText)
+                uiText.text = text;
 
-            if (theme)
-                theme.button.ApplyTo(this);
+            if (Theme.active)
+                Theme.active.button.ApplyTo(this);
 
 #if UNITY_EDITOR
             if (!Application.isPlaying)
@@ -69,7 +91,7 @@ namespace NodeEditor
 
             if (rippleParent)
             {
-                if (theme && theme.button.rippleShape)
+                if (Theme.active && Theme.active.button.rippleShape)
                 {
                     rippleParent.SetActive(false);
                     return;
@@ -100,14 +122,10 @@ namespace NodeEditor
             if (!button.interactable || !hover)
                 return;
 
-            if (!theme || theme.button.rippleShape)
+            if (!Theme.active || !Theme.active.button.rippleShape)
                 return;
 
-#if ENABLE_LEGACY_INPUT_MANAGER
-            theme.button.CreateRipple(rippleParent, Input.mousePosition);
-#elif ENABLE_INPUT_SYSTEM
-            theme.button.CreateRipple(rippleParent, Mouse.current.position.ReadValue());
-#endif
+            Theme.active.button.CreateRipple(rippleParent, Input.mousePosition);
         }
 
         public void OnPointerEnter(PointerEventData eventData)

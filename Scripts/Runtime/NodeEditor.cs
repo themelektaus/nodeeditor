@@ -50,7 +50,7 @@ namespace NodeEditor
                 if (!node)
                 {
                     item = new() { contextItemType = ContextMenuContent.ContextItemType.Separator };
-                    createMenu.contexItems.Add(item);
+                    createMenu.items.Add(item);
                     continue;
                 }
 
@@ -62,11 +62,11 @@ namespace NodeEditor
                     onClick = new()
                 };
                 item.onClick.AddListener(() => AddNode(node.type));
-                createMenu.contexItems.Add(item);
+                createMenu.items.Add(item);
             }
 
             item = new() { contextItemType = ContextMenuContent.ContextItemType.Separator };
-            createMenu.contexItems.Add(item);
+            createMenu.items.Add(item);
 
             item = new()
             {
@@ -76,7 +76,7 @@ namespace NodeEditor
                 onClick = new()
             };
             item.onClick.AddListener(() => onQuitGraph.Invoke());
-            createMenu.contexItems.Add(item);
+            createMenu.items.Add(item);
 
             Close();
         }

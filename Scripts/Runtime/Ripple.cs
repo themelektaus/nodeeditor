@@ -5,7 +5,6 @@ namespace NodeEditor
 {
     public class Ripple : MonoBehaviour
     {
-        public bool unscaledTime;
         public float speed;
         public float maxSize;
         public Color startColor;
@@ -24,12 +23,12 @@ namespace NodeEditor
 
         void Update()
         {
-            var deltaTime = unscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+            var t = Time.unscaledDeltaTime * speed;
 
-            transform.localScale = Vector3.Lerp(transform.localScale, new(maxSize, maxSize, maxSize), deltaTime * speed);
-            colorImage.color = Color.Lerp(colorImage.color, transitionColor, deltaTime * speed);
+            transform.localScale = Vector3.Lerp(transform.localScale, new(maxSize, maxSize, maxSize), t);
+            colorImage.color = Color.Lerp(colorImage.color, transitionColor, t);
 
-            if (transform.localScale.x >= maxSize * 0.998f)
+            if (transform.localScale.x >= maxSize * .998f)
             {
                 if (transform.parent.childCount == 1)
                     transform.parent.gameObject.SetActive(false);

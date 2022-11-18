@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 222441094218478274}
   - component: {fileID: 3171055078628559637}
   - component: {fileID: 114473711772917894}
+  - component: {fileID: 2137372442999910780}
   m_Layer: 5
   m_Name: NodeEditor - Dropdown Item
   m_TagString: Untagged
@@ -197,6 +198,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2137372442999910780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168081051609938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fe068d1182aee448a8247338a2b396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  objects:
+  - {fileID: 5410267325813109508}
 --- !u!1 &1792212506180776
 GameObject:
   m_ObjectHideFlags: 0

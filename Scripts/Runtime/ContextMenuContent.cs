@@ -3,14 +3,16 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 namespace NodeEditor
 {
     public class ContextMenuContent : MonoBehaviour, IPointerDownHandler
     {
-        public List<ContextItem> contexItems = new();
+        [FormerlySerializedAs("contexItems")]
+        public List<ContextItem> items = new();
 
-        ContextMenuManager contextManager;
+        ContextMenuManager manager;
         
         [System.Serializable]
         public class ContextItem
@@ -28,24 +30,24 @@ namespace NodeEditor
 
         void Awake()
         {
-            contextManager = FindObjectOfType<ContextMenuManager>();
+            manager = FindObjectOfType<ContextMenuManager>();
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            contextManager.Close();
+            manager.Close();
             if (eventData.button == PointerEventData.InputButton.Right)
-                contextManager.Open(contexItems);
+                manager.Open(items);
         }
 
         public void CloseOnClick()
         {
-            contextManager.isOn = false;
+            manager.isOn = false;
 
-            if (!contextManager.contextAnimator.isActiveAndEnabled)
+            if (!manager.animator.isActiveAndEnabled)
                 return;
 
-            contextManager.contextAnimator.Play("Menu Out");
+            manager.animator.Play("Menu Out");
         }
     }
 }

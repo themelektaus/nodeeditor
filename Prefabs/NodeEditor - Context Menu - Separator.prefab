@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6520630469563265207}
   - component: {fileID: 93946728855214110}
   - component: {fileID: 7784365176251905629}
+  - component: {fileID: 8523209115515571505}
   m_Layer: 5
   m_Name: NodeEditor - Context Menu - Separator
   m_TagString: Untagged
@@ -76,3 +77,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8523209115515571505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3111258497454059738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fe068d1182aee448a8247338a2b396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 6
+  objects:
+  - {fileID: 7784365176251905629}

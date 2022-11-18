@@ -8,27 +8,35 @@ namespace NodeEditor
     [CreateAssetMenu]
     public class Theme : ScriptableObject
     {
+        static Theme[] themes;
+        static Theme _active;
+
+        public static Theme active
+        {
+            get
+            {
+                if (themes is null)
+                {
+                    themes = Resources.LoadAll<Theme>("");
+                    if (themes.Length > 0)
+                        _active = themes[0];
+                }
+                return _active;
+            }
+        }
+
         [Serializable]
         public struct Window
         {
             public Color titlebarColor;
             public Color backgroundColor;
             public Color textColor;
-
-            public void ApplyTo(CustomWindow window)
-            {
-                if (window.background)
-                    window.background.color = titlebarColor;
-
-                if (window.content)
-                    window.content.color = backgroundColor;
-            }
         }
 
         public Window window = new()
         {
-            titlebarColor = new(.2f, .2f, 0.21f),
-            backgroundColor = new(.3f, .3f, 0.32f),
+            titlebarColor = new(.3f, .3f, 0.32f),
+            backgroundColor = new(.2f, .2f, 0.21f),
             textColor = new(1, 1, 1)
         };
 
@@ -50,9 +58,9 @@ namespace NodeEditor
             public Color rippleStartColor;
             public Color rippleTransitionColor;
 
-            public void ApplyTo(ButtonManagerBasicWithIcon customButton)
+            public void ApplyTo(CustomButton customButton)
             {
-                customButton.image.color = baseColors[customButton.buttonColorIndex];
+                customButton.image.color = baseColors[customButton.colorIndex];
 
                 var button = customButton.button;
                 var colors = button.colors;
@@ -80,7 +88,6 @@ namespace NodeEditor
                 gameObject.transform.position = position;
 
                 var ripple = gameObject.AddComponent<Ripple>();
-                ripple.unscaledTime = true;
                 ripple.speed = rippleSpeed;
                 ripple.maxSize = rippleMaxSize;
                 ripple.startColor = rippleStartColor;
@@ -108,6 +115,17 @@ namespace NodeEditor
             rippleMaxSize = 6,
             rippleStartColor = new(1, 1, 1, .05f),
             rippleTransitionColor = new(1, 1, 1, 0)
+        };
+
+        [Serializable]
+        public struct ScrollView
+        {
+            public Color backgroundColor;
+        }
+
+        public ScrollView scrollView = new()
+        {
+            backgroundColor = new(.15f, .15f, .16f)
         };
     }
 }

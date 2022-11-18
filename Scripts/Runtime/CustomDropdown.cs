@@ -1,18 +1,22 @@
-﻿using NodeEditor;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using TMPro;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace NodeEditor
 {
     public class CustomDropdown : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
     {
-        // Resources
+        [FormerlySerializedAs("themeMain")]
+        public Image main;
+
         public GameObject triggerObject;
         public TextMeshProUGUI selectedText;
         public Image selectedImage;
@@ -26,14 +30,12 @@ namespace NodeEditor
 
         [HideInInspector] public Transform currentListParent;
 
-        // Settings
         [Range(1, 50)] public int itemPaddingTop = 8;
         [Range(1, 50)] public int itemPaddingBottom = 8;
         [Range(1, 50)] public int itemPaddingLeft = 8;
         [Range(1, 50)] public int itemPaddingRight = 25;
         public int selectedItemIndex = 0;
 
-        // Animation
         [Range(1, 25)] public float transitionSmoothness = 10;
         [Range(1, 25)] public float sizeSmoothness = 15;
         public float panelSize = 200;
@@ -43,21 +45,17 @@ namespace NodeEditor
         bool isInTransition = false;
         float closeOn;
 
-        // Item list
         public List<Item> dropdownItems = new();
 
-        // Dynamic
         Func<List<string>> getDynamicItems;
 
         [Serializable]
         public class DropdownEvent : UnityEvent<int> { }
         [Space(8)] public DropdownEvent dropdownEvent;
 
-        // Audio
         public AudioClip hoverSound;
         public AudioClip clickSound;
 
-        // Other variables
         [HideInInspector] public bool isOn;
         [HideInInspector] public int index = 0;
         [HideInInspector] public int siblingIndex = 0;

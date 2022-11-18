@@ -579,6 +579,7 @@ GameObject:
   - component: {fileID: 6348623868904985436}
   - component: {fileID: 9016839353009785790}
   - component: {fileID: 5469649225300418958}
+  - component: {fileID: 7638811513247944812}
   m_Layer: 5
   m_Name: NodeEditor - Dropdown
   m_TagString: Untagged
@@ -620,6 +621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c6e5718ae5e9246af72590402986a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  main: {fileID: 2110967263652545079}
   triggerObject: {fileID: 8182867676845193486}
   selectedText: {fileID: 8082822625882503767}
   selectedImage: {fileID: 1234326375863113322}
@@ -712,6 +714,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7638811513247944812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648671152139970661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fe068d1182aee448a8247338a2b396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  objects:
+  - {fileID: 2110967263652545079}
 --- !u!1 &8182867676845193486
 GameObject:
   m_ObjectHideFlags: 0
