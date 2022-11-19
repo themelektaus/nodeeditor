@@ -129,7 +129,7 @@ namespace NodeEditor
 
                     var itemButton = gameObject.GetComponent<Button>();
                     itemButton.onClick.AddListener(contexItems[i].onClick.Invoke);
-                    itemButton.onClick.AddListener(CloseOnClick);
+                    itemButton.onClick.AddListener(Close);
                 }
                 else if (contexItems[i].contextItemType == ContextItemType.Separator)
                 {
@@ -146,7 +146,7 @@ namespace NodeEditor
             SetContextMenuPosition(offset);
         }
 
-        public void CloseOnClick() => Close();
+        public void CloseOnClick(UnityEngine.EventSystems.BaseEventData _) => Close();
 
         public void Close()
         {
