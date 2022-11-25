@@ -61,26 +61,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd611441fc6f1f4c9f714fcd4dcbeb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonIcon: {fileID: 21300000, guid: 032f644fc08324ac4ad77ddac86c7e26, type: 3}
-  buttonText: 
+  iconImage: {fileID: 1051447382813867996}
+  uiText: {fileID: 0}
+  rippleParent: {fileID: 0}
+  colorIndex: 0
+  icon: {fileID: 21300000, guid: 032f644fc08324ac4ad77ddac86c7e26, type: 3}
+  text: 
   clickEvent:
     m_PersistentCalls:
       m_Calls: []
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []
+  soundSource: {fileID: 0}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 0}
-  normalImage: {fileID: 1051447382813867996}
-  normalText: {fileID: 0}
-  soundSource: {fileID: 0}
-  rippleParent: {fileID: 0}
-  rippleUpdateMode: 1
-  rippleShape: {fileID: 0}
-  rippleSpeed: 2.4
-  rippleMaxSize: 6
-  rippleStartColor: {r: 1, g: 1, b: 1, a: 0.1568628}
-  rippleTransitionColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &3983006664999134455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,10 +98,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+    m_HighlightedColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+    m_PressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+    m_SelectedColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -138,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8, g: 0, b: 0.101960786, a: 1}
+  m_Color: {r: 0.3, g: 0.3, b: 0.32, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -230,7 +225,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5
+  m_PixelsPerUnitMultiplier: 10
 --- !u!1 &1088244739178436290
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,26 +809,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd611441fc6f1f4c9f714fcd4dcbeb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonIcon: {fileID: 21300000, guid: c07549e02a2d55049906af989d15fe22, type: 3}
-  buttonText: ACTIVATE
+  iconImage: {fileID: 7608293278114558431}
+  uiText: {fileID: 8757544635322898428}
+  rippleParent: {fileID: 3912588575186403556}
+  colorIndex: 0
+  icon: {fileID: 21300000, guid: c07549e02a2d55049906af989d15fe22, type: 3}
+  text: ACTIVATE
   clickEvent:
     m_PersistentCalls:
       m_Calls: []
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []
+  soundSource: {fileID: 0}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 0}
-  normalImage: {fileID: 7608293278114558431}
-  normalText: {fileID: 8757544635322898428}
-  soundSource: {fileID: 0}
-  rippleParent: {fileID: 3912588575186403556}
-  rippleUpdateMode: 1
-  rippleShape: {fileID: 21300000, guid: 5e16c7aea118d68498053518146c9cf9, type: 3}
-  rippleSpeed: 2.4
-  rippleMaxSize: 6
-  rippleStartColor: {r: 1, g: 1, b: 1, a: 0.1568628}
-  rippleTransitionColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &8305312919755211440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,10 +846,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+    m_HighlightedColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+    m_PressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+    m_SelectedColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -891,7 +881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.5019608, b: 0.9019608, a: 1}
+  m_Color: {r: 0.3, g: 0.3, b: 0.32, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -971,26 +961,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd611441fc6f1f4c9f714fcd4dcbeb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonIcon: {fileID: 0}
-  buttonText: OPEN
+  iconImage: {fileID: 3124592954737737850}
+  uiText: {fileID: 5609973438086765462}
+  rippleParent: {fileID: 6970857471732077041}
+  colorIndex: 0
+  icon: {fileID: 0}
+  text: OPEN
   clickEvent:
     m_PersistentCalls:
       m_Calls: []
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []
+  soundSource: {fileID: 0}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 0}
-  normalImage: {fileID: 3124592954737737850}
-  normalText: {fileID: 5609973438086765462}
-  soundSource: {fileID: 0}
-  rippleParent: {fileID: 6970857471732077041}
-  rippleUpdateMode: 1
-  rippleShape: {fileID: 21300000, guid: 5e16c7aea118d68498053518146c9cf9, type: 3}
-  rippleSpeed: 2.4
-  rippleMaxSize: 6
-  rippleStartColor: {r: 1, g: 1, b: 1, a: 0.1568628}
-  rippleTransitionColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &1461470978805911721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,10 +998,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+    m_HighlightedColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+    m_PressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+    m_SelectedColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1048,7 +1033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.5686275, b: 1, a: 1}
+  m_Color: {r: 0.3, g: 0.3, b: 0.32, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

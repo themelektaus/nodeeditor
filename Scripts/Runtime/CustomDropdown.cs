@@ -199,14 +199,9 @@ namespace NodeEditor
 
         void Update()
         {
-            if (isInTransition == false)
+            if (!isInTransition)
                 return;
 
-            ProcessModularAnimation();
-        }
-
-        void ProcessModularAnimation()
-        {
             var alpha = Time.unscaledDeltaTime * transitionSmoothness;
             var size = Time.unscaledDeltaTime * sizeSmoothness;
 
@@ -301,6 +296,14 @@ namespace NodeEditor
                 soundSource.PlayOneShot(clickSound);
 
             selectedItemIndex = itemIndex;
+        }
+
+        public void Open()
+        {
+            if (isOn)
+                return;
+
+            Animate();
         }
 
         public void Animate()

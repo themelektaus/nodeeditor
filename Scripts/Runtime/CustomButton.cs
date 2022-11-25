@@ -57,7 +57,7 @@ namespace NodeEditor
         public Button button { get; private set; }
         public Image image { get; private set; }
 
-        bool hover;
+        public bool isHovering { get; private set; }
 
         public enum RippleUpdateMode { Normal, UnscaledTime }
 
@@ -119,7 +119,7 @@ namespace NodeEditor
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (!button.interactable || !hover)
+            if (!button.interactable || !isHovering)
                 return;
 
             if (!Theme.active || !Theme.active.button.rippleShape)
@@ -134,12 +134,12 @@ namespace NodeEditor
                 soundSource.PlayOneShot(hoverSound);
 
             hoverEvent.Invoke();
-            hover = true;
+            isHovering = true;
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            hover = false;
+            isHovering = false;
         }
     }
 }

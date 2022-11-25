@@ -78,7 +78,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 10
+  m_PixelsPerUnitMultiplier: 15
 --- !u!114 &434259174813617519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.3, g: 0.3, b: 0.32, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 10
+  m_PixelsPerUnitMultiplier: 15
 --- !u!225 &6315476533716835766
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -704,7 +704,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9016839353009785790}
         m_TargetAssemblyTypeName: 
-        m_MethodName: Animate
+        m_MethodName: Open
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -928,6 +928,18 @@ PrefabInstance:
     - target: {fileID: 1917162486644184450, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917162486807022997, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917162486807022997, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917162486807022997, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1917162487574702829, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
       propertyPath: m_SizeDelta.y

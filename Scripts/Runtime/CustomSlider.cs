@@ -2,12 +2,13 @@
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+
 using TMPro;
 
 namespace NodeEditor
 {
     [RequireComponent(typeof(Slider))]
-    public class SliderManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class CustomSlider : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         // Resources
         public Slider mainSlider;

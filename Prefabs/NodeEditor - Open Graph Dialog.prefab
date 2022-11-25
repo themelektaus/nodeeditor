@@ -259,7 +259,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5
+  m_PixelsPerUnitMultiplier: 10
 --- !u!225 &7474544149893075380
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -622,26 +622,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd611441fc6f1f4c9f714fcd4dcbeb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonIcon: {fileID: 21300000, guid: 66995b6b61aed864daa956ae255d7fee, type: 3}
-  buttonText: CREATE GRAPH
+  iconImage: {fileID: 316281038943075100}
+  uiText: {fileID: 2164973194902533836}
+  rippleParent: {fileID: 114082748318256401}
+  colorIndex: 0
+  icon: {fileID: 21300000, guid: 66995b6b61aed864daa956ae255d7fee, type: 3}
+  text: CREATE GRAPH
   clickEvent:
     m_PersistentCalls:
       m_Calls: []
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []
+  soundSource: {fileID: 0}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 0}
-  normalImage: {fileID: 316281038943075100}
-  normalText: {fileID: 2164973194902533836}
-  soundSource: {fileID: 0}
-  rippleParent: {fileID: 114082748318256401}
-  rippleUpdateMode: 1
-  rippleShape: {fileID: 21300000, guid: 5e16c7aea118d68498053518146c9cf9, type: 3}
-  rippleSpeed: 2.4
-  rippleMaxSize: 6
-  rippleStartColor: {r: 1, g: 1, b: 1, a: 0.1568628}
-  rippleTransitionColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &7203250436201833583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,10 +659,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+    m_HighlightedColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+    m_PressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+    m_SelectedColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -699,7 +694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06666667, g: 0.6, b: 0.06666667, a: 1}
+  m_Color: {r: 0.3, g: 0.3, b: 0.32, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1230,7 +1225,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5
+  m_PixelsPerUnitMultiplier: 10
 --- !u!1 &5263924003531908282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,7 +1301,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5
+  m_PixelsPerUnitMultiplier: 10
 --- !u!1 &5263924003730699437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,26 +1650,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd611441fc6f1f4c9f714fcd4dcbeb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonIcon: {fileID: 21300000, guid: 8a9605cca7152fc4bbef9451d4171c96, type: 3}
-  buttonText: BACK TO MAIN MENU
+  iconImage: {fileID: 4658790328365234221}
+  uiText: {fileID: 244066361439729322}
+  rippleParent: {fileID: 1026355146711287497}
+  colorIndex: 0
+  icon: {fileID: 21300000, guid: 8a9605cca7152fc4bbef9451d4171c96, type: 3}
+  text: BACK TO MAIN MENU
   clickEvent:
     m_PersistentCalls:
       m_Calls: []
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []
+  soundSource: {fileID: 0}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 0}
-  normalImage: {fileID: 4658790328365234221}
-  normalText: {fileID: 244066361439729322}
-  soundSource: {fileID: 0}
-  rippleParent: {fileID: 1026355146711287497}
-  rippleUpdateMode: 1
-  rippleShape: {fileID: 21300000, guid: 5e16c7aea118d68498053518146c9cf9, type: 3}
-  rippleSpeed: 2.4
-  rippleMaxSize: 6
-  rippleStartColor: {r: 1, g: 1, b: 1, a: 0.1568628}
-  rippleTransitionColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &2926370411687266666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1697,10 +1687,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+    m_HighlightedColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+    m_PressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+    m_SelectedColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1732,7 +1722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3019608, g: 0.3019608, b: 0.31764707, a: 1}
+  m_Color: {r: 0.3, g: 0.3, b: 0.32, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1824,7 +1814,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5
+  m_PixelsPerUnitMultiplier: 10
 --- !u!1001 &3608592034720613579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1929,6 +1919,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Graph List
       objectReference: {fileID: 0}
+    - target: {fileID: 1917162486548786407, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1917162486644184450, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1940,6 +1934,18 @@ PrefabInstance:
     - target: {fileID: 1917162486644184450, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917162486807022997, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917162486807022997, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917162486807022997, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

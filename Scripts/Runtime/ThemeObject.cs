@@ -30,40 +30,68 @@ namespace NodeEditor
 
             if (type == Type.Window)
             {
-                (objects[0] as Image).color = theme.window.titlebarColor;
-                (objects[1] as Image).color = theme.window.backgroundColor;
+                if (TryGet(0, out Image titlebarImage))
+                    titlebarImage.color = theme.window.titlebarColor;
+
+                if (TryGet(1, out Image backgroundImage))
+                    backgroundImage.color = theme.window.backgroundColor;
+
                 return;
             }
 
             if (type == Type.Dropdown)
             {
-                (objects[0] as Image).color = theme.button.baseColors[0];
+                if (TryGet(0, out Image image))
+                    image.color = theme.button.baseColors[0];
+
                 return;
             }
 
             if (type == Type.DropdownItem)
             {
-                (objects[0] as Image).color = theme.window.titlebarColor;
+                if (TryGet(0, out Image image))
+                    image.color = theme.window.titlebarColor;
+
                 return;
             }
 
             if (type == Type.ScrollView)
             {
-                (objects[0] as Image).color = theme.scrollView.backgroundColor;
+                if (TryGet(0, out Image image))
+                    image.color = theme.scrollView.backgroundColor;
+
                 return;
             }
 
             if (type == Type.ContextMenu)
             {
-                (objects[0] as Image).color = theme.scrollView.backgroundColor;
+                if (TryGet(0, out Image image))
+                    image.color = theme.scrollView.backgroundColor;
+
                 return;
             }
 
             if (type == Type.ContextMenuSeparator)
             {
-                (objects[0] as Image).color = theme.button.baseColors[0];
+                if (TryGet(0, out Image image))
+                    image.color = theme.button.baseColors[0];
+
                 return;
             }
+        }
+
+        bool TryGet<T>(int index, out T @object)
+        {
+            if (index < objects.Length)
+            {
+                if (objects[index] is T result)
+                {
+                    @object = result;
+                    return true;
+                }
+            }
+            @object = default;
+            return false;
         }
     }
 }
