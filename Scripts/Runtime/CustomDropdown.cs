@@ -41,7 +41,7 @@ namespace NodeEditor
         public float panelSize = 200;
 
         RectTransform listRect;
-        CanvasGroup listCG;
+        CanvasGroup listCanvasGroup;
         bool isInTransition = false;
         float closeOn;
 
@@ -79,10 +79,10 @@ namespace NodeEditor
 
         void OnEnable()
         {
-            listCG = gameObject.GetComponentInChildren<CanvasGroup>();
-            listCG.alpha = 0;
-            listCG.interactable = false;
-            listCG.blocksRaycasts = false;
+            listCanvasGroup = gameObject.GetComponentInChildren<CanvasGroup>();
+            listCanvasGroup.alpha = 0;
+            listCanvasGroup.interactable = false;
+            listCanvasGroup.blocksRaycasts = false;
 
             if (inputFieldCanvasGroup)
             {
@@ -93,7 +93,7 @@ namespace NodeEditor
 
             closeOn = gameObject.GetComponent<RectTransform>().sizeDelta.y;
 
-            listRect = listCG.GetComponent<RectTransform>();
+            listRect = listCanvasGroup.GetComponent<RectTransform>();
             listRect.sizeDelta = new(listRect.sizeDelta.x, closeOn);
         }
 
@@ -207,23 +207,23 @@ namespace NodeEditor
 
             if (isOn)
             {
-                listCG.alpha += alpha;
+                listCanvasGroup.alpha += alpha;
                 if (inputFieldCanvasGroup)
                     inputFieldCanvasGroup.alpha += alpha;
 
                 listRect.sizeDelta = Vector2.Lerp(listRect.sizeDelta, new(listRect.sizeDelta.x, panelSize), size);
-                if (listRect.sizeDelta.y >= panelSize - .1f && listCG.alpha >= 1)
+                if (listRect.sizeDelta.y >= panelSize - .1f && listCanvasGroup.alpha >= 1)
                     isInTransition = false;
                 return;
             }
 
-            listCG.alpha -= alpha;
+            listCanvasGroup.alpha -= alpha;
             if (inputFieldCanvasGroup)
                 inputFieldCanvasGroup.alpha -= alpha;
 
             listRect.sizeDelta = Vector2.Lerp(listRect.sizeDelta, new(listRect.sizeDelta.x, closeOn), size);
 
-            if (listRect.sizeDelta.y <= closeOn + .1f && listCG.alpha <= 0)
+            if (listRect.sizeDelta.y <= closeOn + .1f && listCanvasGroup.alpha <= 0)
             {
                 isInTransition = false;
                 enabled = false;
@@ -317,8 +317,8 @@ namespace NodeEditor
                 isInTransition = true;
                 enabled = true;
 
-                listCG.blocksRaycasts = true;
-                listCG.interactable = true;
+                listCanvasGroup.blocksRaycasts = true;
+                listCanvasGroup.interactable = true;
 
                 if (inputFieldCanvasGroup)
                 {
@@ -335,8 +335,8 @@ namespace NodeEditor
                 isInTransition = true;
                 enabled = true;
 
-                listCG.blocksRaycasts = false;
-                listCG.interactable = false;
+                listCanvasGroup.blocksRaycasts = false;
+                listCanvasGroup.interactable = false;
 
                 if (inputFieldCanvasGroup)
                 {
