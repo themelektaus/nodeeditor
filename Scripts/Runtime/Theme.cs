@@ -60,7 +60,8 @@ namespace NodeEditor
 
             public void ApplyTo(CustomButton customButton)
             {
-                customButton.image.color = baseColors[customButton.colorIndex];
+                var colorIndex = customButton.appearance.colorIndex;
+                customButton.image.color = baseColors[colorIndex];
 
                 var button = customButton.button;
                 var colors = button.colors;

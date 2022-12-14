@@ -7,7 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
-using Foldout;
+using System;
 
 namespace NodeEditor
 {
@@ -23,35 +23,31 @@ namespace NodeEditor
 
         public GameObject rippleParent;
 
+        [Serializable]
+        public class Appearance
+        {
+            public int colorIndex;
+            public Sprite icon;
+            public string text;
+        }
+        public Appearance appearance = new();
 
+        [Serializable]
+        public class Events
+        {
+            public UnityEvent click;
+            public UnityEvent hover;
+        }
+        public Events events = new();
 
-        [Foldout("Appearance")]
-
-        [FormerlySerializedAs("buttonColorIndex")]
-        public int colorIndex;
-
-        [FormerlySerializedAs("buttonIcon")]
-        public Sprite icon;
-
-        [FormerlySerializedAs("buttonText")]
-        public string text = "";
-
-
-
-        [Foldout("Events")]
-
-        public UnityEvent clickEvent;
-        public UnityEvent hoverEvent;
-
-
-
-        [Foldout("Audio")]
-
-        public AudioSource soundSource;
-        public AudioClip hoverSound;
-        public AudioClip clickSound;
-
-
+        [Serializable]
+        public class Audio
+        {
+            public AudioSource soundSource;
+            public AudioClip hoverSound;
+            public AudioClip clickSound;
+        }
+        public new Audio audio = new();
 
         public CanvasGroup canvasGroup { get; private set; }
         public Button button { get; private set; }
@@ -63,15 +59,15 @@ namespace NodeEditor
 
         void Awake()
         {
-            canvasGroup  = GetComponent<CanvasGroup>();
+            canvasGroup = GetComponent<CanvasGroup>();
             button = GetComponent<Button>();
             image = GetComponent<Image>();
 
             if (iconImage)
-                iconImage.sprite = icon;
+                iconImage.sprite = appearance.icon;
 
             if (uiText)
-                uiText.text = text;
+                uiText.text = appearance.text;
 
             if (Theme.active)
                 Theme.active.button.ApplyTo(this);
@@ -83,10 +79,10 @@ namespace NodeEditor
 
             button.onClick.AddListener(() =>
             {
-                if (clickSound)
-                    soundSource.PlayOneShot(clickSound);
+                if (audio.clickSound)
+                    audio.soundSource.PlayOneShot(audio.clickSound);
 
-                clickEvent.Invoke();
+                events.click.Invoke();
             });
 
             if (rippleParent)
@@ -130,10 +126,10 @@ namespace NodeEditor
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (button.interactable && hoverSound)
-                soundSource.PlayOneShot(hoverSound);
+            if (button.interactable && audio.hoverSound)
+                audio.soundSource.PlayOneShot(audio.hoverSound);
 
-            hoverEvent.Invoke();
+            events.hover.Invoke();
             isHovering = true;
         }
 

@@ -625,6 +625,21 @@ MonoBehaviour:
   iconImage: {fileID: 316281038943075100}
   uiText: {fileID: 2164973194902533836}
   rippleParent: {fileID: 114082748318256401}
+  appearance:
+    colorIndex: 0
+    icon: {fileID: 21300000, guid: 66995b6b61aed864daa956ae255d7fee, type: 3}
+    text: CREATE GRAPH
+  events:
+    click:
+      m_PersistentCalls:
+        m_Calls: []
+    hover:
+      m_PersistentCalls:
+        m_Calls: []
+  audio:
+    soundSource: {fileID: 0}
+    hoverSound: {fileID: 0}
+    clickSound: {fileID: 0}
   colorIndex: 0
   icon: {fileID: 21300000, guid: 66995b6b61aed864daa956ae255d7fee, type: 3}
   text: CREATE GRAPH
@@ -1653,6 +1668,21 @@ MonoBehaviour:
   iconImage: {fileID: 4658790328365234221}
   uiText: {fileID: 244066361439729322}
   rippleParent: {fileID: 1026355146711287497}
+  appearance:
+    colorIndex: 0
+    icon: {fileID: 21300000, guid: 8a9605cca7152fc4bbef9451d4171c96, type: 3}
+    text: BACK TO MAIN MENU
+  events:
+    click:
+      m_PersistentCalls:
+        m_Calls: []
+    hover:
+      m_PersistentCalls:
+        m_Calls: []
+  audio:
+    soundSource: {fileID: 0}
+    hoverSound: {fileID: 0}
+    clickSound: {fileID: 0}
   colorIndex: 0
   icon: {fileID: 21300000, guid: 8a9605cca7152fc4bbef9451d4171c96, type: 3}
   text: BACK TO MAIN MENU

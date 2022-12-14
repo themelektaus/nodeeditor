@@ -67,6 +67,33 @@ MonoBehaviour:
   iconImage: {fileID: 3793306022187086253}
   uiText: {fileID: 6382499618898546479}
   rippleParent: {fileID: 7900381246292473081}
+  appearance:
+    colorIndex: 0
+    icon: {fileID: 21300000, guid: c07549e02a2d55049906af989d15fe22, type: 3}
+    text: BUTTON
+  events:
+    click:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    hover:
+      m_PersistentCalls:
+        m_Calls: []
+  audio:
+    soundSource: {fileID: 0}
+    hoverSound: {fileID: 0}
+    clickSound: {fileID: 0}
   colorIndex: 0
   icon: {fileID: 21300000, guid: c07549e02a2d55049906af989d15fe22, type: 3}
   text: BUTTON

@@ -64,6 +64,21 @@ MonoBehaviour:
   iconImage: {fileID: 1051447382813867996}
   uiText: {fileID: 0}
   rippleParent: {fileID: 0}
+  appearance:
+    colorIndex: 0
+    icon: {fileID: 21300000, guid: 032f644fc08324ac4ad77ddac86c7e26, type: 3}
+    text: 
+  events:
+    click:
+      m_PersistentCalls:
+        m_Calls: []
+    hover:
+      m_PersistentCalls:
+        m_Calls: []
+  audio:
+    soundSource: {fileID: 0}
+    hoverSound: {fileID: 0}
+    clickSound: {fileID: 0}
   colorIndex: 0
   icon: {fileID: 21300000, guid: 032f644fc08324ac4ad77ddac86c7e26, type: 3}
   text: 
@@ -812,6 +827,21 @@ MonoBehaviour:
   iconImage: {fileID: 7608293278114558431}
   uiText: {fileID: 8757544635322898428}
   rippleParent: {fileID: 3912588575186403556}
+  appearance:
+    colorIndex: 0
+    icon: {fileID: 21300000, guid: c07549e02a2d55049906af989d15fe22, type: 3}
+    text: ACTIVATE
+  events:
+    click:
+      m_PersistentCalls:
+        m_Calls: []
+    hover:
+      m_PersistentCalls:
+        m_Calls: []
+  audio:
+    soundSource: {fileID: 0}
+    hoverSound: {fileID: 0}
+    clickSound: {fileID: 0}
   colorIndex: 0
   icon: {fileID: 21300000, guid: c07549e02a2d55049906af989d15fe22, type: 3}
   text: ACTIVATE
@@ -964,6 +994,21 @@ MonoBehaviour:
   iconImage: {fileID: 3124592954737737850}
   uiText: {fileID: 5609973438086765462}
   rippleParent: {fileID: 6970857471732077041}
+  appearance:
+    colorIndex: 0
+    icon: {fileID: 0}
+    text: OPEN
+  events:
+    click:
+      m_PersistentCalls:
+        m_Calls: []
+    hover:
+      m_PersistentCalls:
+        m_Calls: []
+  audio:
+    soundSource: {fileID: 0}
+    hoverSound: {fileID: 0}
+    clickSound: {fileID: 0}
   colorIndex: 0
   icon: {fileID: 0}
   text: OPEN

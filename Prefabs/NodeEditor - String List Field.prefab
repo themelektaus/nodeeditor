@@ -155,6 +155,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1917162486807022997, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917162486807022997, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917162486807022997, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1917162485861685756, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
@@ -233,6 +245,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 4850089517858999812}
     m_Modifications:
+    - target: {fileID: 612369412131404406, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: m_Color.b
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 612369412131404406, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: m_Color.g
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 612369412131404406, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1964327234157033066, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
       propertyPath: m_Name
       value: Delete Last Button
@@ -242,6 +266,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 032f644fc08324ac4ad77ddac86c7e26, type: 3}
     - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 032f644fc08324ac4ad77ddac86c7e26, type: 3}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: text
+      value: LAST
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
       propertyPath: buttonIcon
       value: 
       objectReference: {fileID: 21300000, guid: 032f644fc08324ac4ad77ddac86c7e26, type: 3}
@@ -250,7 +282,23 @@ PrefabInstance:
       value: LAST
       objectReference: {fileID: 0}
     - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: colorIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: appearance.icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 032f644fc08324ac4ad77ddac86c7e26, type: 3}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: appearance.text
+      value: LAST
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
       propertyPath: buttonColorIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: appearance.colorIndex
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
@@ -258,12 +306,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1798965436903541208}
     - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: events.click.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1798965436903541208}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
       propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RemoveLastItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: events.click.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RemoveLastItem
       objectReference: {fileID: 0}
     - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
       propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: NodeEditor.InputFieldList, NodeEditor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: events.click.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NodeEditor.InputFieldList, NodeEditor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: events.click.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6382499618898546479, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
       propertyPath: m_text
@@ -581,6 +645,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 4850089517858999812}
     m_Modifications:
+    - target: {fileID: 612369412131404406, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: m_Color.b
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 612369412131404406, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 612369412131404406, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: m_Color.r
+      value: 0.13
+      objectReference: {fileID: 0}
     - target: {fileID: 1964327234157033066, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
       propertyPath: m_Name
       value: Add Button
@@ -590,6 +666,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 66995b6b61aed864daa956ae255d7fee, type: 3}
     - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 66995b6b61aed864daa956ae255d7fee, type: 3}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: text
+      value: OPTION
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
       propertyPath: buttonIcon
       value: 
       objectReference: {fileID: 21300000, guid: 66995b6b61aed864daa956ae255d7fee, type: 3}
@@ -598,7 +682,23 @@ PrefabInstance:
       value: OPTION
       objectReference: {fileID: 0}
     - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: colorIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: appearance.icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 66995b6b61aed864daa956ae255d7fee, type: 3}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: appearance.text
+      value: OPTION
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
       propertyPath: buttonColorIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: appearance.colorIndex
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
@@ -606,12 +706,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1798965436903541208}
     - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: events.click.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1798965436903541208}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
       propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: events.click.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: AddItem
       objectReference: {fileID: 0}
     - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
       propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: NodeEditor.InputFieldList, NodeEditor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: events.click.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NodeEditor.InputFieldList, NodeEditor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768404540454090218, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
+      propertyPath: events.click.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6382499618898546479, guid: 129ee833997de5d42a49334a5ae40956, type: 3}
       propertyPath: m_text

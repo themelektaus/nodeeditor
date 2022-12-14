@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7761359832137822948}
   - component: {fileID: 4102515159092814365}
   - component: {fileID: 6632427472929047433}
+  - component: {fileID: 5320128483828131891}
   - component: {fileID: 3859573726939347760}
   - component: {fileID: 3780201834020226815}
   - component: {fileID: 353314097064538103}
@@ -66,6 +67,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggleObject: {fileID: 0}
   toggleAnimator: {fileID: 0}
+--- !u!114 &5320128483828131891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558486592684982062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01ac03db28ecd94c99b46cfa0db9ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boolReference:
+    type: 0
+    object: {fileID: 0}
+    path: 
+    serializedData: 
 --- !u!114 &3859573726939347760
 MonoBehaviour:
   m_ObjectHideFlags: 0

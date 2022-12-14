@@ -13,12 +13,20 @@ namespace NodeEditor
 
         void Awake()
         {
-            toggleObject = gameObject.GetComponent<Toggle>();
-            toggleAnimator = toggleObject.GetComponent<Animator>();
-
-            toggleObject.onValueChanged.AddListener(UpdateStateDynamic);
-
+            Init();
             UpdateState();
+        }
+
+        void Init()
+        {
+            if (!toggleObject)
+            {
+                toggleObject = gameObject.GetComponent<Toggle>();
+                toggleObject.onValueChanged.AddListener(UpdateStateDynamic);
+            }
+
+            if (!toggleAnimator)
+                toggleAnimator = toggleObject.GetComponent<Animator>();
         }
 
         public void UpdateState()
@@ -45,11 +53,13 @@ namespace NodeEditor
 
         public bool Get()
         {
+            Init();
             return toggleObject.isOn;
         }
 
         public void Set(bool value)
         {
+            Init();
             toggleObject.isOn = value;
             UpdateState();
         }
