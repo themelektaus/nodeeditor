@@ -94,31 +94,6 @@ MonoBehaviour:
     soundSource: {fileID: 0}
     hoverSound: {fileID: 0}
     clickSound: {fileID: 0}
-  colorIndex: 0
-  icon: {fileID: 21300000, guid: c07549e02a2d55049906af989d15fe22, type: 3}
-  text: BUTTON
-  clickEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Prototype.Example.TheTalker.Example_TheTalker_ListView_Dynamic,
-          Assembly-CSharp
-        m_MethodName: AddItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  hoverEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  soundSource: {fileID: 0}
-  hoverSound: {fileID: 0}
-  clickSound: {fileID: 0}
 --- !u!114 &5367843865558613611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,7 +467,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 12
+  m_PixelsPerUnitMultiplier: 15
 --- !u!114 &3329010917934045993
 MonoBehaviour:
   m_ObjectHideFlags: 0
