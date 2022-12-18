@@ -1,12 +1,7 @@
-﻿using System.Collections;
-using TMPro;
+﻿using TMPro;
+
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
-
-#if ENABLE_INPUT_SYSTEM
-using UnityEngine.InputSystem;
-#endif
 
 namespace NodeEditor
 {
@@ -18,11 +13,8 @@ namespace NodeEditor
         public TMP_InputField inputText;
         public Animator inputFieldAnimator;
 
-        [Header("Settings")]
-        public bool processSubmit = false;
-
         [Header("Events")]
-        public UnityEvent onSubmit;
+        public UnityEvent<string> onInput;
 
         void Awake()
         {
@@ -34,6 +26,7 @@ namespace NodeEditor
 
             inputText.onSelect.AddListener(_ => AnimateIn());
             inputText.onEndEdit.AddListener(_ => AnimateOut());
+            inputText.onValueChanged.AddListener(x => onInput.Invoke(x));
 
             UpdateStateInstant();
         }
@@ -45,39 +38,15 @@ namespace NodeEditor
 
             inputText.ForceLabelUpdate();
             UpdateStateInstant();
-
-            if (gameObject.activeInHierarchy)
-                StartCoroutine(DisableAnimator());
-        }
-
-        void Update()
-        {
-            if (!processSubmit)
-                return;
-
-            if (EventSystem.current.currentSelectedGameObject != inputText.gameObject)
-                return;
-
-#if ENABLE_LEGACY_INPUT_MANAGER
-            if (Input.GetKeyDown(KeyCode.Return))
-                onSubmit.Invoke();
-#elif ENABLE_INPUT_SYSTEM
-            if (Keyboard.current.enterKey.wasPressedThisFrame)
-                onSubmit.Invoke();
-#endif
         }
 
         public void AnimateIn()
         {
-            StopCoroutine(DisableAnimator());
-
             if (!inputFieldAnimator.gameObject.activeInHierarchy)
                 return;
 
             inputFieldAnimator.enabled = true;
             inputFieldAnimator.Play("In");
-
-            StartCoroutine(DisableAnimator());
         }
 
         public void AnimateOut()
@@ -89,8 +58,6 @@ namespace NodeEditor
 
             if (inputText.text.Length == 0)
                 inputFieldAnimator.Play("Out");
-
-            StartCoroutine(DisableAnimator());
         }
 
         public void UpdateState()
@@ -113,12 +80,6 @@ namespace NodeEditor
             }
 
             inputFieldAnimator.Play("In", 0, 1);
-        }
-
-        IEnumerator DisableAnimator()
-        {
-            yield return new WaitForSeconds(1);
-            inputFieldAnimator.enabled = false;
         }
 
         public string GetText()
