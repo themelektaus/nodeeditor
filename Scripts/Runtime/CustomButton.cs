@@ -8,13 +8,15 @@ using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
 using System;
+using System.Collections;
 
 namespace NodeEditor
 {
-    [ExecuteAlways]
     [RequireComponent(typeof(Button))]
     public class CustomButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
     {
+        static float lastClick;
+
         [FormerlySerializedAs("normalImage")]
         public Image iconImage;
 
@@ -57,7 +59,7 @@ namespace NodeEditor
 
         public enum RippleUpdateMode { Normal, UnscaledTime }
 
-        void Awake()
+        void OnValidate()
         {
             canvasGroup = GetComponent<CanvasGroup>();
             button = GetComponent<Button>();
@@ -69,21 +71,20 @@ namespace NodeEditor
             if (uiText)
                 uiText.text = appearance.text;
 
-            if (Theme.active)
-                Theme.active.button.ApplyTo(this);
-
-#if UNITY_EDITOR
-            if (!Application.isPlaying)
+            if (!isActiveAndEnabled)
                 return;
-#endif
 
-            button.onClick.AddListener(() =>
+            IEnumerator _()
             {
-                if (audio.clickSound)
-                    audio.soundSource.PlayOneShot(audio.clickSound);
+                yield return null;
+                UpdateTheme();
+            }
+            StartCoroutine(_());
+        }
 
-                events.click.Invoke();
-            });
+        void Awake()
+        {
+            OnValidate();
 
             if (rippleParent)
             {
@@ -99,6 +100,8 @@ namespace NodeEditor
 
         void Update()
         {
+            UpdateTheme();
+
             if (!canvasGroup || !button)
                 return;
 
@@ -113,6 +116,12 @@ namespace NodeEditor
             canvasGroup.alpha = .3f;
         }
 
+        void UpdateTheme()
+        {
+            if (Theme.active)
+                Theme.active.button.ApplyTo(this);
+        }
+
         public void OnPointerDown(PointerEventData eventData)
         {
             if (!button.interactable || !isHovering)
@@ -122,6 +131,20 @@ namespace NodeEditor
                 return;
 
             Theme.active.button.CreateRipple(rippleParent, Input.mousePosition);
+
+            if (audio.clickSound)
+                audio.soundSource.PlayOneShot(audio.clickSound);
+
+            if (lastClick + .2f <= Time.unscaledTime)
+            {
+                lastClick = Time.unscaledTime;
+                IEnumerator _()
+                {
+                    yield return new WaitForSecondsRealtime(.2f);
+                    events.click.Invoke();
+                }
+                StartCoroutine(_());
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)
