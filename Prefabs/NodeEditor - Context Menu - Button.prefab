@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 2965910844167312347}
   - component: {fileID: 2965959829526882919}
   - component: {fileID: 2965752758129524543}
+  - component: {fileID: 4311193596244742172}
   m_Layer: 5
   m_Name: NodeEditor - Context Menu - Button
   m_TagString: Untagged
@@ -276,18 +277,21 @@ MonoBehaviour:
   iconImage: {fileID: 2965631350875571801}
   uiText: {fileID: 2966513346207819865}
   rippleParent: {fileID: 0}
-  colorIndex: 0
-  icon: {fileID: 0}
-  text: 
-  clickEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  hoverEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  soundSource: {fileID: 0}
-  hoverSound: {fileID: 0}
-  clickSound: {fileID: 0}
+  appearance:
+    colorIndex: 0
+    icon: {fileID: 0}
+    text: 
+  events:
+    click:
+      m_PersistentCalls:
+        m_Calls: []
+    hover:
+      m_PersistentCalls:
+        m_Calls: []
+  audio:
+    soundSource: {fileID: 0}
+    hoverSound: {fileID: 0}
+    clickSound: {fileID: 0}
 --- !u!114 &2965959829526882919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,3 +366,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 15
+--- !u!114 &4311193596244742172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2934981049858405015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fe068d1182aee448a8247338a2b396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 7
+  objects:
+  - {fileID: 2965752758129524543}
+  - {fileID: 2966513346207819865}

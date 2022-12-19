@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3, g: 0.3, b: 0.32, a: 1}
+  m_Color: {r: 0.3605366, g: 0.3605366, b: 0.38900003, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 15
+  m_PixelsPerUnitMultiplier: 2.8
 --- !u!225 &6315476533716835766
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -729,6 +729,7 @@ MonoBehaviour:
   type: 2
   objects:
   - {fileID: 2110967263652545079}
+  - {fileID: 8082822625882503767}
 --- !u!1 &8182867676845193486
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +811,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TransformParent: {fileID: 3933576094765600638}
     m_Modifications:
     - target: {fileID: 1917162485861685756, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
@@ -941,6 +942,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 1917162486807022997, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1917162487574702829, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
       propertyPath: m_SizeDelta.y
       value: -67
@@ -950,10 +955,18 @@ PrefabInstance:
       value: -67
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1917162486349571662, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
       insertIndex: 0
       addedObject: {fileID: 6419656903789851845}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1917162486349571663, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5726854153322681526}
+    - targetCorrespondingSourceObject: {fileID: 1917162485861685757, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4782226100396609777}
   m_SourcePrefab: {fileID: 100100000, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
 --- !u!1 &8923533793512305526 stripped
 GameObject:

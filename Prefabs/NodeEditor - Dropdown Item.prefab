@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   objects:
-  - {fileID: 5410267325813109508}
+  - {fileID: 114351996073308340}
 --- !u!1 &1792212506180776
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.3, g: 0.3, b: 0.32, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

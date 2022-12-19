@@ -128,5 +128,13 @@ namespace NodeEditor
         {
             backgroundColor = new(.15f, .15f, .16f)
         };
+
+        public TMPro.TMP_FontAsset defaultFont;
+        public TMPro.TMP_FontAsset defaultFontSemiBold;
+        public TMPro.TMP_FontAsset defaultFontBold;
+
+        public float defaultFontSize = 21;
+        public float outerPPU = 10;
+        public float innerPPU = 15;
     }
 }

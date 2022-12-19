@@ -14,7 +14,8 @@ namespace NodeEditor
             DropdownItem,
             ScrollView,
             ContextMenu,
-            ContextMenuSeparator
+            ContextMenuSeparator,
+            Button
         }
 
         [SerializeField] Type type;
@@ -31,10 +32,16 @@ namespace NodeEditor
             if (type == Type.Window)
             {
                 if (TryGet(0, out Image titlebarImage))
+                {
                     titlebarImage.color = theme.window.titlebarColor;
+                    titlebarImage.pixelsPerUnitMultiplier = theme.outerPPU;
+                }
 
                 if (TryGet(1, out Image backgroundImage))
+                {
                     backgroundImage.color = theme.window.backgroundColor;
+                    backgroundImage.pixelsPerUnitMultiplier = theme.outerPPU;
+                }
 
                 return;
             }
@@ -42,15 +49,27 @@ namespace NodeEditor
             if (type == Type.Dropdown)
             {
                 if (TryGet(0, out Image image))
+                {
                     image.color = theme.button.baseColors[0];
+                    image.pixelsPerUnitMultiplier = theme.innerPPU;
+                }
+
+                if (TryGet(1, out TMPro.TextMeshProUGUI text))
+                {
+                    text.font = theme.defaultFontBold;
+                    text.fontSize = theme.defaultFontSize;
+                }
 
                 return;
             }
 
             if (type == Type.DropdownItem)
             {
-                if (TryGet(0, out Image image))
-                    image.color = theme.window.titlebarColor;
+                if (TryGet(0, out TMPro.TextMeshProUGUI text))
+                { 
+                    text.font = theme.defaultFont;
+                    text.fontSize = theme.defaultFontSize;
+                }
 
                 return;
             }
@@ -58,7 +77,10 @@ namespace NodeEditor
             if (type == Type.ScrollView)
             {
                 if (TryGet(0, out Image image))
+                {
                     image.color = theme.scrollView.backgroundColor;
+                    image.pixelsPerUnitMultiplier = theme.innerPPU;
+                }
 
                 return;
             }
@@ -75,6 +97,23 @@ namespace NodeEditor
             {
                 if (TryGet(0, out Image image))
                     image.color = theme.button.baseColors[0];
+
+                return;
+            }
+
+            if (type == Type.Button)
+            {
+                if (TryGet(0, out Image image))
+                    image.pixelsPerUnitMultiplier = theme.innerPPU;
+
+                if (TryGet(1, out TMPro.TextMeshProUGUI text))
+                {
+                    text.font = theme.defaultFontSemiBold;
+                    text.fontSize = theme.defaultFontSize;
+                }
+
+                if (TryGet(2, out image))
+                    image.pixelsPerUnitMultiplier = theme.innerPPU;
 
                 return;
             }
