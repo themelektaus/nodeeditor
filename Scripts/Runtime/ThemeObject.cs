@@ -79,7 +79,6 @@ namespace NodeEditor
                 if (TryGet(0, out Image image))
                 {
                     image.color = theme.scrollView.backgroundColor;
-                    image.pixelsPerUnitMultiplier = theme.innerPPU;
                 }
 
                 return;
