@@ -65,11 +65,31 @@ namespace NodeEditor
             button = GetComponent<Button>();
             image = GetComponent<Image>();
 
+            UpdateAppearance();
+        }
+
+        public void UpdateAppearance()
+        {
             if (iconImage)
-                iconImage.sprite = appearance.icon;
+            {
+                if (appearance.icon)
+                {
+                    iconImage.enabled = true;
+                    iconImage.sprite = appearance.icon;
+                }
+                else
+                {
+                    iconImage.enabled = false;
+                }
+            }
 
             if (uiText)
+            {
+                var m = uiText.margin;
+                m.x = appearance.icon ? 35 : 0;
+                uiText.margin = m;
                 uiText.text = appearance.text;
+            }
 
             if (!isActiveAndEnabled)
                 return;
