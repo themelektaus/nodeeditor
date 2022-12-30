@@ -631,7 +631,6 @@ MonoBehaviour:
   inputField: {fileID: 0}
   itemList: {fileID: 0}
   listParent: {fileID: 0}
-  soundSource: {fileID: 0}
   currentListParent: {fileID: 0}
   itemPaddingTop: 1
   itemPaddingBottom: 8
@@ -651,8 +650,6 @@ MonoBehaviour:
   dropdownEvent:
     m_PersistentCalls:
       m_Calls: []
-  hoverSound: {fileID: 0}
-  clickSound: {fileID: 0}
   isOn: 0
   index: 0
   siblingIndex: 0
@@ -817,6 +814,10 @@ PrefabInstance:
     - target: {fileID: 1917162485861685756, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917162485861685756, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 123.99968
       objectReference: {fileID: 0}
     - target: {fileID: 1917162486349571662, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
       propertyPath: m_Pivot.x

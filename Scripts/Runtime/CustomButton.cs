@@ -153,7 +153,7 @@ namespace NodeEditor
             Theme.active.button.CreateRipple(rippleParent, Input.mousePosition);
 
             if (audio.clickSound)
-                audio.soundSource.PlayOneShot(audio.clickSound);
+                audio.soundSource.PlayOneShot(audio.clickSound, .8f);
 
             if (lastClick + .2f <= Time.unscaledTime)
             {
@@ -170,7 +170,7 @@ namespace NodeEditor
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (button.interactable && audio.hoverSound)
-                audio.soundSource.PlayOneShot(audio.hoverSound);
+                audio.soundSource.PlayOneShot(audio.hoverSound, .7f);
 
             events.hover.Invoke();
             isHovering = true;

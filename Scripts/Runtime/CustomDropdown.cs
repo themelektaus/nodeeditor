@@ -12,7 +12,7 @@ using UnityEngine.UI;
 
 namespace NodeEditor
 {
-    public class CustomDropdown : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
+    public class CustomDropdown : MonoBehaviour
     {
         [FormerlySerializedAs("themeMain")]
         public Image main;
@@ -26,7 +26,6 @@ namespace NodeEditor
         public CustomInputField inputField;
         public VerticalLayoutGroup itemList;
         public Transform listParent;
-        public AudioSource soundSource;
 
         [HideInInspector] public Transform currentListParent;
 
@@ -52,9 +51,6 @@ namespace NodeEditor
         [Serializable]
         public class DropdownEvent : UnityEvent<int> { }
         [Space(8)] public DropdownEvent dropdownEvent;
-
-        public AudioClip hoverSound;
-        public AudioClip clickSound;
 
         [HideInInspector] public bool isOn;
         [HideInInspector] public int index = 0;
@@ -292,9 +288,6 @@ namespace NodeEditor
             if (selectedText)
                 selectedText.text = dropdownItems[itemIndex].itemName;
 
-            if (clickSound)
-                soundSource.PlayOneShot(clickSound);
-
             selectedItemIndex = itemIndex;
         }
 
@@ -400,18 +393,6 @@ namespace NodeEditor
             itemList.padding.bottom = itemPaddingBottom;
             itemList.padding.left = itemPaddingLeft;
             itemList.padding.right = itemPaddingRight;
-        }
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            if (clickSound)
-                soundSource.PlayOneShot(clickSound);
-        }
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            if (hoverSound)
-                soundSource.PlayOneShot(hoverSound);
         }
 
         public string GetText()
