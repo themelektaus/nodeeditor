@@ -8,9 +8,9 @@ namespace NodeEditor
     [RequireComponent(typeof(Button))]
     public class ButtonSounds : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
     {
-        [SerializeField] AudioSource soundSource;
-        [SerializeField] AudioClip hoverSound;
-        [SerializeField] AudioClip clickSound;
+        public AudioSource soundSource;
+        public AudioClip hoverSound;
+        public AudioClip clickSound;
 
         Button button;
         bool isHovering;

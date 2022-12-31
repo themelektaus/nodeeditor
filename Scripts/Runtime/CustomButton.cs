@@ -42,15 +42,6 @@ namespace NodeEditor
         }
         public Events events = new();
 
-        [Serializable]
-        public class Audio
-        {
-            public AudioSource soundSource;
-            public AudioClip hoverSound;
-            public AudioClip clickSound;
-        }
-        public new Audio audio = new();
-
         public CanvasGroup canvasGroup { get; private set; }
         public Button button { get; private set; }
         public Image image { get; private set; }
@@ -152,9 +143,6 @@ namespace NodeEditor
 
             Theme.active.button.CreateRipple(rippleParent, Input.mousePosition);
 
-            if (audio.clickSound)
-                audio.soundSource.PlayOneShot(audio.clickSound, .8f);
-
             if (lastClick + .2f <= Time.unscaledTime)
             {
                 lastClick = Time.unscaledTime;
@@ -169,9 +157,6 @@ namespace NodeEditor
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (button.interactable && audio.hoverSound)
-                audio.soundSource.PlayOneShot(audio.hoverSound, .7f);
-
             events.hover.Invoke();
             isHovering = true;
         }

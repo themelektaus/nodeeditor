@@ -66,9 +66,16 @@ namespace NodeEditor
             if (type == Type.DropdownItem)
             {
                 if (TryGet(0, out TMPro.TextMeshProUGUI text))
-                { 
+                {
                     text.font = theme.defaultFont;
                     text.fontSize = theme.defaultFontSize;
+                }
+
+                if (TryGet(1, out ButtonSounds buttonSounds))
+                {
+                    buttonSounds.soundSource.outputAudioMixerGroup = theme.sounds.audioMixerGroup;
+                    buttonSounds.hoverSound = theme.sounds.hoverSound;
+                    buttonSounds.clickSound = theme.sounds.clickSound;
                 }
 
                 return;

@@ -215,6 +215,7 @@ MonoBehaviour:
   type: 3
   objects:
   - {fileID: 114351996073308340}
+  - {fileID: 6731255435858451301}
 --- !u!114 &6731255435858451301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,8 +229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundSource: {fileID: 5503913014213408594}
-  hoverSound: {fileID: 8300000, guid: fe7990ee4ac5e5448857ab6b64f7bdfe, type: 3}
-  clickSound: {fileID: 8300000, guid: cde0712e2125fea4ab46190803748e2f, type: 3}
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!82 &5503913014213408594
 AudioSource:
   m_ObjectHideFlags: 0
