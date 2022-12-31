@@ -14,10 +14,13 @@ namespace NodeEditor
 {
     public class CustomDropdown : MonoBehaviour
     {
+        public static CustomDropdown openDropdown;
+
         [FormerlySerializedAs("themeMain")]
         public Image main;
 
-        public GameObject triggerObject;
+        public GameObject[] triggerObjects;
+
         public TextMeshProUGUI selectedText;
         public Image selectedImage;
         public Transform itemParent;
@@ -52,7 +55,6 @@ namespace NodeEditor
         public class DropdownEvent : UnityEvent<int> { }
         [Space(8)] public DropdownEvent dropdownEvent;
 
-        [HideInInspector] public bool isOn;
         [HideInInspector] public int index = 0;
         [HideInInspector] public int siblingIndex = 0;
 
@@ -106,15 +108,17 @@ namespace NodeEditor
 
                 currentListParent = transform.parent;
 
-                if (triggerObject)
+                foreach (var triggerObject in triggerObjects)
                 {
                     triggerEvent = triggerObject.AddComponent<EventTrigger>();
-
                     EventTrigger.Entry entry;
 
-                    entry = new() { eventID = EventTriggerType.Scroll };
-                    entry.callback.AddListener(e => Animate());
-                    triggerEvent.triggers.Add(entry);
+                    if (Array.IndexOf(triggerObjects, triggerObject) == 0)
+                    {
+                        entry = new() { eventID = EventTriggerType.Scroll };
+                        entry.callback.AddListener(e => Animate());
+                        triggerEvent.triggers.Add(entry);
+                    }
 
                     entry = new() { eventID = EventTriggerType.PointerClick };
                     entry.callback.AddListener(e => Animate());
@@ -201,7 +205,7 @@ namespace NodeEditor
             var alpha = Time.unscaledDeltaTime * transitionSmoothness;
             var size = Time.unscaledDeltaTime * sizeSmoothness;
 
-            if (isOn)
+            if (openDropdown == this)
             {
                 listCanvasGroup.alpha += alpha;
                 if (inputFieldCanvasGroup)
@@ -293,20 +297,24 @@ namespace NodeEditor
 
         public void Open()
         {
-            if (isOn)
+            if (openDropdown)
+            {
+                openDropdown.Animate();
                 return;
+            }
 
             Animate();
         }
 
         public void Animate()
         {
-            if (!isOn)
+            if (openDropdown != this)
             {
+                openDropdown = this;
+
                 if (viewport)
                     viewport.zoomEnabled = false;
 
-                isOn = true;
                 isInTransition = true;
                 enabled = true;
 
@@ -324,7 +332,7 @@ namespace NodeEditor
                 if (viewport)
                     viewport.zoomEnabled = true;
 
-                isOn = false;
+                openDropdown = null;
                 isInTransition = true;
                 enabled = true;
 
@@ -338,21 +346,23 @@ namespace NodeEditor
                 }
             }
 
-            if (isOn)
+            if (openDropdown == this)
             {
                 if (inputField)
                     UpdateItems();
 
                 UpdateIcons();
 
-                triggerObject.SetActive(true);
+                foreach (var triggerObject in triggerObjects)
+                    triggerObject.SetActive(true);
             }
             else
             {
                 if (inputField)
                     selectedText.text = inputField.inputText.text;
 
-                triggerObject.SetActive(false);
+                foreach (var triggerObject in triggerObjects)
+                    triggerObject.SetActive(false);
             }
 
             transform.SetAsLastSibling();
