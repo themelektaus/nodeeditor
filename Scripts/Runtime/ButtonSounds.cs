@@ -32,7 +32,7 @@ namespace NodeEditor
         public void OnPointerEnter(PointerEventData _)
         {
             if (button.interactable && hoverSound)
-                soundSource.PlayOneShot(hoverSound, .7f);
+                soundSource.PlayOneShot(hoverSound, .8f);
 
             isHovering = true;
         }
