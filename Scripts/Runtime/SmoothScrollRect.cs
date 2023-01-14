@@ -16,7 +16,14 @@ namespace NodeEditor
         protected override void OnEnable()
         {
             base.OnEnable();
-            target = new(0, 1);
+            ForceScrollToTop();
+        }
+
+        public void ForceScrollToTop()
+        {
+            target = new(1, 1);
+            currentVelocity = new();
+            normalizedPosition = new(0, 1);
         }
 
         protected virtual void Update()
