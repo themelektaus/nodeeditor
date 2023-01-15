@@ -729,7 +729,6 @@ MonoBehaviour:
   dropdownEvent:
     m_PersistentCalls:
       m_Calls: []
-  isOn: 0
   index: 0
   siblingIndex: 0
   uncheckedIcon: {fileID: 0}
@@ -891,12 +890,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 3933576094765600638}
     m_Modifications:
     - target: {fileID: 1917162485861685756, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917162485861685756, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1917162485861685756, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000045776367
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1917162486349571662, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
       propertyPath: m_Pivot.x
