@@ -54,6 +54,7 @@ namespace NodeEditor
         [Serializable]
         public class DropdownEvent : UnityEvent<int> { }
         [Space(8)] public DropdownEvent dropdownEvent;
+        public UnityEvent openEvent;
 
         [HideInInspector] public int index = 0;
         [HideInInspector] public int siblingIndex = 0;
@@ -65,6 +66,7 @@ namespace NodeEditor
 
         Viewport viewport;
         CanvasGroup inputFieldCanvasGroup;
+
 
         [Serializable]
         public class Item
@@ -299,11 +301,13 @@ namespace NodeEditor
         {
             if (openDropdown)
             {
+                openDropdown.openEvent.Invoke();
                 openDropdown.Animate();
                 return;
             }
 
             Animate();
+            openEvent.Invoke();
         }
 
         public void Animate()

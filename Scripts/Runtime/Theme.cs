@@ -166,5 +166,17 @@ namespace NodeEditor
         }
 
         public Sounds sounds = new();
+
+        public void PlayHoverSound(AudioSource audioSource)
+        {
+            audioSource.outputAudioMixerGroup = sounds.audioMixerGroup;
+            audioSource.PlayOneShot(sounds.hoverSound, .8f);
+        }
+
+        public void PlayClickSound(AudioSource audioSource)
+        {
+            audioSource.outputAudioMixerGroup = sounds.audioMixerGroup;
+            audioSource.PlayOneShot(sounds.clickSound, .8f);
+        }
     }
 }
