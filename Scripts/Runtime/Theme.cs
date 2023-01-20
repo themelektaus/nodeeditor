@@ -74,25 +74,6 @@ namespace NodeEditor
                 colors.colorMultiplier = colorMultiplier;
                 colors.fadeDuration = fadeDuration;
                 button.colors = colors;
-
-                if (!Application.isPlaying)
-                    return;
-
-                if (!customButton.TryGetComponent(out ButtonSounds buttonSounds))
-                    return;
-
-                var theme = active;
-                if (!theme)
-                    return;
-
-                if (theme.sounds.audioMixerGroup && buttonSounds.soundSource)
-                    buttonSounds.soundSource.outputAudioMixerGroup = theme.sounds.audioMixerGroup;
-
-                if (theme.sounds.hoverSound)
-                    buttonSounds.hoverSound = active.sounds.hoverSound;
-
-                if (theme.sounds.clickSound)
-                    buttonSounds.clickSound = active.sounds.clickSound;
             }
 
             public void CreateRipple(GameObject parent, Vector2 position)
@@ -156,27 +137,5 @@ namespace NodeEditor
         public float defaultFontSize = 21;
         public float outerPPU = 10;
         public float innerPPU = 15;
-
-        [Serializable]
-        public struct Sounds
-        {
-            public AudioMixerGroup audioMixerGroup;
-            public AudioClip hoverSound;
-            public AudioClip clickSound;
-        }
-
-        public Sounds sounds = new();
-
-        public void PlayHoverSound(AudioSource audioSource)
-        {
-            audioSource.outputAudioMixerGroup = sounds.audioMixerGroup;
-            audioSource.PlayOneShot(sounds.hoverSound, .8f);
-        }
-
-        public void PlayClickSound(AudioSource audioSource)
-        {
-            audioSource.outputAudioMixerGroup = sounds.audioMixerGroup;
-            audioSource.PlayOneShot(sounds.clickSound, .8f);
-        }
     }
 }
