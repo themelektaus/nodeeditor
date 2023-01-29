@@ -149,7 +149,8 @@ namespace NodeEditor
                 IEnumerator _()
                 {
                     yield return new WaitForSecondsRealtime(.2f);
-                    events.click.Invoke();
+                    if (button.interactable)
+                        events.click.Invoke();
                 }
                 StartCoroutine(_());
             }
