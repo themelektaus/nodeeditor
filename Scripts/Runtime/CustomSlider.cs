@@ -4,11 +4,12 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 using TMPro;
+using System;
 
 namespace NodeEditor
 {
     [RequireComponent(typeof(Slider))]
-    public class CustomSlider : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class CustomSlider : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler
     {
         // Resources
         public Slider mainSlider;
@@ -25,9 +26,12 @@ namespace NodeEditor
         // Events
         [System.Serializable] public class SliderEvent : UnityEvent<float> { }
         [Space(8)] public SliderEvent sliderEvent;
+        public UnityEvent doubleClickEvent;
 
         // Other Variables
         [HideInInspector] public Animator sliderAnimator;
+
+        float lastUpTime = -1;
 
         void Awake()
         {
@@ -84,6 +88,19 @@ namespace NodeEditor
                 sliderAnimator.Play("Value Out");
             else
                 popupValueText.gameObject.SetActive(false);
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            var time = Time.unscaledTime;
+            if (time - lastUpTime > .2f)
+            {
+                lastUpTime = time;
+                return;
+            }
+
+            lastUpTime = -1;
+            doubleClickEvent.Invoke();
         }
     }
 }
