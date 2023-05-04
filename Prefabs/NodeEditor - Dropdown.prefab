@@ -78,7 +78,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 15
+  m_PixelsPerUnitMultiplier: 2.8
 --- !u!114 &434259174813617519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 2866817677202841271}
   - component: {fileID: 2110967263652545079}
   - component: {fileID: 6315476533716835766}
+  - component: {fileID: 3146909179257642534}
   m_Layer: 5
   m_Name: Main
   m_TagString: Untagged
@@ -260,6 +261,62 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &3146909179257642534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928339979697398512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Highlighted
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2110967263652545079}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9016839353009785790}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2155078789166919242
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,7 +711,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6348623868904985436}
   - component: {fileID: 9016839353009785790}
-  - component: {fileID: 5469649225300418958}
   - component: {fileID: 7638811513247944812}
   m_Layer: 5
   m_Name: NodeEditor - Dropdown
@@ -714,11 +770,11 @@ MonoBehaviour:
   itemPaddingTop: 1
   itemPaddingBottom: 8
   itemPaddingLeft: 8
-  itemPaddingRight: 25
+  itemPaddingRight: 23
   selectedItemIndex: 0
   transitionSmoothness: 20
   sizeSmoothness: 20
-  panelSize: 260
+  panelSize: 260.5
   dropdownItems:
   - itemName: 
     itemIcon: {fileID: 0}
@@ -729,66 +785,13 @@ MonoBehaviour:
   dropdownEvent:
     m_PersistentCalls:
       m_Calls: []
+  openEvent:
+    m_PersistentCalls:
+      m_Calls: []
   index: 0
   siblingIndex: 0
   uncheckedIcon: {fileID: 0}
   checkedIcon: {fileID: 21300000, guid: 1c1bef4b40e990c42aed6432ebd324ef, type: 3}
---- !u!114 &5469649225300418958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7648671152139970661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 0
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 2110967263652545079}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9016839353009785790}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Open
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &7638811513247944812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,7 +1030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1917162486807022997, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
-      value: 2.8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1917162487574702829, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1037,7 +1040,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -67
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8842199875548422902, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1917162486349571662, guid: 3d9a7c09a4f03bf41a9362f2abf578e1, type: 3}
@@ -1070,7 +1074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding:
     m_Left: 8
-    m_Right: 25
+    m_Right: 23
     m_Top: 8
     m_Bottom: 8
   m_ChildAlignment: 1

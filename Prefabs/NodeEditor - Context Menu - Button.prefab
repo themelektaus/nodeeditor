@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: 0}
+  m_AnchoredPosition: {x: 27.5, y: 0}
   m_SizeDelta: {x: 22.5, y: 22.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3146126294231880511
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2934669518877119675}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -111,8 +111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 23.749998, y: 0.5}
-  m_SizeDelta: {x: -67.5, y: -1}
+  m_AnchoredPosition: {x: 6.5, y: 0.5}
+  m_SizeDelta: {x: -19, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3146761050353239241
 CanvasRenderer:
@@ -169,8 +169,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.5
-  m_fontSizeBase: 22.5
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -278,7 +278,7 @@ MonoBehaviour:
   uiText: {fileID: 2966513346207819865}
   rippleParent: {fileID: 0}
   appearance:
-    colorIndex: 0
+    colorIndex: -1
     icon: {fileID: 0}
     text: 
   events:
@@ -288,10 +288,6 @@ MonoBehaviour:
     hover:
       m_PersistentCalls:
         m_Calls: []
-  audio:
-    soundSource: {fileID: 0}
-    hoverSound: {fileID: 0}
-    clickSound: {fileID: 0}
 --- !u!114 &2965959829526882919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,7 +374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4fe068d1182aee448a8247338a2b396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 7
+  type: 3
   objects:
-  - {fileID: 2965752758129524543}
   - {fileID: 2966513346207819865}

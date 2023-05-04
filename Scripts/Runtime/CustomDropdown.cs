@@ -442,5 +442,10 @@ namespace NodeEditor
             selectedItemIndex = index;
             SetupDropdown();
         }
+
+        public void Test()
+        {
+            Debug.Log("Test");
+        }
     }
 }

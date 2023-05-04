@@ -101,40 +101,36 @@ namespace NodeEditor
             isOn = true;
         }
 
-        public void Open(List<ContextItem> contexItems, Vector2 offset = new())
+        public void Open(List<ContextItem> contextItems, Vector2 offset = new())
         {
             Close();
 
             foreach (Transform child in itemParent)
                 Destroy(child.gameObject);
 
-            for (int i = 0; i < contexItems.Count; ++i)
+            foreach (var contextItem in contextItems)
             {
-                if (contexItems[i].contextItemType == ContextItemType.Button)
+                switch (contextItem.contextItemType)
                 {
-                    var gameObject = Instantiate(button);
-                    gameObject.transform.SetParent(itemParent, false);
+                    case ContextItemType.Button:
+                        var buttonInstance = Instantiate(button);
+                        buttonInstance.transform.SetParent(itemParent, false);
 
-                    var setItemText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
-                    var textHelper = contexItems[i].itemText;
-                    setItemText.text = textHelper;
+                        if (buttonInstance.TryGetComponent(out CustomButton customButton))
+                        {
+                            customButton.appearance.icon = contextItem.itemIcon;
+                            customButton.appearance.text = contextItem.itemText;
+                            customButton.UpdateAppearance();
 
-                    var goImage = gameObject.transform.Find("Icon");
-                    var setItemImage = goImage.GetComponent<Image>();
-                    var imageHelper = contexItems[i].itemIcon;
-                    setItemImage.sprite = imageHelper;
+                            customButton.events.click.AddListener(contextItem.onClick.Invoke);
+                            customButton.events.click.AddListener(Close);
+                        }
+                        break;
 
-                    if (!imageHelper)
-                        setItemImage.color = new();
-
-                    var itemButton = gameObject.GetComponent<Button>();
-                    itemButton.onClick.AddListener(contexItems[i].onClick.Invoke);
-                    itemButton.onClick.AddListener(Close);
-                }
-                else if (contexItems[i].contextItemType == ContextItemType.Separator)
-                {
-                    var gameObject = Instantiate(separator);
-                    gameObject.transform.SetParent(itemParent, false);
+                    case ContextItemType.Separator:
+                        var separatorInstance = Instantiate(separator);
+                        separatorInstance.transform.SetParent(itemParent, false);
+                        break;
                 }
 
                 StopCoroutine(nameof(ExecuteAfterTime));
