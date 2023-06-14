@@ -54,7 +54,7 @@ namespace NodeEditor
 
         void Awake()
         {
-            mainCanvas = gameObject.GetComponentInParent<Canvas>();
+            mainCanvas = FindObjectOfType<Canvas>();
             animator = gameObject.GetComponent<Animator>();
 
             contentPosition = new(top, left, 0);

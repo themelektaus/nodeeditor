@@ -21,8 +21,8 @@ namespace NodeEditor
         void Awake()
         {
             zoomEnabled = true;
-            canvas = GetComponentInParent<Canvas>();
-            nodeEditor = GetComponentInParent<NodeEditor>();
+            canvas = FindObjectOfType<Canvas>();
+            nodeEditor = FindObjectOfType<NodeEditor>();
         }
 
         public void FrameAll()

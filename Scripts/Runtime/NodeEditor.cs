@@ -41,8 +41,8 @@ namespace NodeEditor
 
         void Awake()
         {
-            canvas = GetComponentInParent<Canvas>();
-            
+            canvas = FindObjectOfType<Canvas>();
+
             ContextMenuContent.ContextItem item;
 
             foreach (var node in nodes)
