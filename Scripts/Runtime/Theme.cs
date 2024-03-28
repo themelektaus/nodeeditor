@@ -1,7 +1,7 @@
 using System;
+using System.Linq;
 
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
 
 namespace NodeEditor
@@ -9,22 +9,21 @@ namespace NodeEditor
     [CreateAssetMenu]
     public class Theme : ScriptableObject
     {
-        static Theme[] themes;
-        static Theme _active;
+        static Theme[] themes = null;
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        static void InitializeOnLoad() => themes = null;
 
         public static Theme active
         {
             get
             {
-                if (themes is null)
-                {
-                    themes = Resources.LoadAll<Theme>("");
-                    if (themes.Length > 0)
-                        _active = themes[0];
-                }
-                return _active;
+                themes ??= Resources.LoadAll<Theme>("");
+                return themes.FirstOrDefault(x => x.enabled);
             }
         }
+
+        public bool enabled;
 
         [Serializable]
         public struct Window

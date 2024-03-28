@@ -17,6 +17,9 @@ namespace NodeEditor
     {
         static float lastClick;
 
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        static void InitializeOnLoad() => lastClick = 0;
+
         [FormerlySerializedAs("normalImage")]
         public Image iconImage;
 
@@ -109,6 +112,9 @@ namespace NodeEditor
             }
         }
 
+        bool IsInteractable()
+            => button.interactable && Utils.IsInteractable(transform.parent);
+
         void Update()
         {
             UpdateTheme();
@@ -116,7 +122,7 @@ namespace NodeEditor
             if (!canvasGroup || !button)
                 return;
 
-            if (button.interactable)
+            if (IsInteractable())
             {
                 canvasGroup.interactable = true;
                 canvasGroup.alpha = 1;
@@ -135,7 +141,7 @@ namespace NodeEditor
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (!button.interactable || !isHovering)
+            if (!button.interactable || !IsInteractable() || !isHovering)
                 return;
 
             if (!Theme.active || !Theme.active.button.rippleShape)
@@ -149,7 +155,7 @@ namespace NodeEditor
                 IEnumerator _()
                 {
                     yield return new WaitForSecondsRealtime(.2f);
-                    if (button.interactable)
+                    if (IsInteractable())
                         events.click.Invoke();
                 }
                 StartCoroutine(_());
