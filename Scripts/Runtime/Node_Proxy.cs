@@ -17,7 +17,7 @@ namespace NodeEditor
             node.onRead += () =>
             {
                 dropdown.SetText(node.data.GetString("name"), () =>
-                    FindObjectsOfType<Node_Proxy>()
+                    FindObjectsByType<Node_Proxy>(FindObjectsSortMode.None)
                         .Select(x => x.dropdown.GetText())
                         .ToList()
                 );

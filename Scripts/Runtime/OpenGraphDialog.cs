@@ -11,22 +11,9 @@ namespace NodeEditor
 
         public event Action onDestroy;
 
-        Animator animator;
-
-        void Awake()
-        {
-            animator = GetComponent<Animator>();
-        }
-
-        void Start()
-        {
-            animator.Play("In");
-        }
-
         public void Stop()
         {
-            animator.Play("Out");
-            Destroy(gameObject, .2f);
+            Destroy(gameObject);
         }
 
         void OnDestroy()

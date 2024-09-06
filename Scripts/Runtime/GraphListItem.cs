@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace NodeEditor
 {
@@ -7,8 +6,8 @@ namespace NodeEditor
     {
         public CustomInputField inputField;
         
-        public Button activateButton;
-        public Button openButton;
-        public Button deleteButton;
+        public CustomButton activateButton;
+        public CustomButton openButton;
+        public CustomButton deleteButton;
     }
 }

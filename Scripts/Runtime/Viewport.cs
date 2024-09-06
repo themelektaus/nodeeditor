@@ -21,8 +21,8 @@ namespace NodeEditor
         void Awake()
         {
             zoomEnabled = true;
-            canvas = FindObjectOfType<Canvas>();
-            nodeEditor = FindObjectOfType<NodeEditor>();
+            canvas = FindFirstObjectByType<Canvas>();
+            nodeEditor = FindFirstObjectByType<NodeEditor>();
         }
 
         public void FrameAll()

@@ -41,7 +41,7 @@ namespace NodeEditor
 
         void Awake()
         {
-            canvas = FindObjectOfType<Canvas>();
+            canvas = FindFirstObjectByType<Canvas>();
 
             ContextMenuContent.ContextItem item;
 
@@ -77,10 +77,13 @@ namespace NodeEditor
             };
             item.onClick.AddListener(() => onQuitGraph.Invoke());
             createMenu.items.Add(item);
+        }
 
+        void Start()
+        {
             Close();
         }
-        
+
         public void Open(string guid)
         {
             if (guidStack.Count > 0)

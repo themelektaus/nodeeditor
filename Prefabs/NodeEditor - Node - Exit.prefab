@@ -5,7 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1569324570398276222, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
@@ -15,6 +15,10 @@ PrefabInstance:
     - target: {fileID: 1569324570398276222, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
       propertyPath: collapseTo
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072938823110386763, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
+      propertyPath: 'objects.Array.data[0]'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5399361645130788032, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
       propertyPath: m_AnchorMin.y
@@ -148,6 +152,10 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 5399361646213079959, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 5399361646401493164, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
       propertyPath: m_Type
       value: 0
@@ -180,7 +188,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5399361646601685191, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
+      propertyPath: m_Color.b
+      value: 0.12941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399361646601685191, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
+      propertyPath: m_Color.g
+      value: 0.18039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399361646601685191, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5019608
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5640317409406334522, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dae2b74a99d6f414db0cce3e76ce5158, type: 3}

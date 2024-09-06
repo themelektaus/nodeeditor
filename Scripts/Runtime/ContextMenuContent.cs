@@ -30,7 +30,7 @@ namespace NodeEditor
 
         void Awake()
         {
-            manager = FindObjectOfType<ContextMenuManager>();
+            manager = FindFirstObjectByType<ContextMenuManager>();
         }
 
         public void OnPointerDown(PointerEventData eventData)

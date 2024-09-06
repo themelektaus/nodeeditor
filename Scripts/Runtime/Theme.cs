@@ -14,16 +14,21 @@ namespace NodeEditor
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         static void InitializeOnLoad() => themes = null;
 
-        public static Theme active
+        public static Theme @default
+            => (themes ??= Resources.LoadAll<Theme>(""))
+                .FirstOrDefault(x => x.isDefault);
+
+        public static Theme active2
         {
             get
             {
-                themes ??= Resources.LoadAll<Theme>("");
-                return themes.FirstOrDefault(x => x.enabled);
+                //themes ??= Resources.LoadAll<Theme>("");
+                return null;// themes.FirstOrDefault(x => x.enabled);
             }
         }
 
-        public bool enabled;
+        //public bool isEnabled;
+        public bool isDefault;
 
         [Serializable]
         public struct Window
@@ -78,9 +83,6 @@ namespace NodeEditor
 
             public void CreateRipple(GameObject parent, Vector2 position)
             {
-                if (!parent)
-                    return;
-
                 parent.SetActive(true);
                 parent.transform.SetAsFirstSibling();
 

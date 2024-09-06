@@ -69,19 +69,19 @@ namespace NodeEditor
                 }
                 else
                 {
-                    newItem.activateButton.onClick.AddListener(() =>
+                    newItem.activateButton.events.click.AddListener(() =>
                     {
                         Global.Storage.SetActiveGraphGUID(guid);
                         Refresh();
                     });
                 }
 
-                newItem.openButton.onClick.AddListener(() =>
+                newItem.openButton.events.click.AddListener(() =>
                 {
                     onOpen.Invoke(_guid);
                 });
 
-                newItem.deleteButton.onClick.AddListener(() =>
+                newItem.deleteButton.events.click.AddListener(() =>
                 {
                     Global.Storage.DeleteGraph(guid);
                     guids = LoadGraphGUIDs();

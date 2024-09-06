@@ -20,6 +20,8 @@ namespace NodeEditor
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         static void InitializeOnLoad() => lastClick = 0;
 
+        [SerializeField] Theme theme;
+
         [FormerlySerializedAs("normalImage")]
         public Image iconImage;
 
@@ -100,15 +102,21 @@ namespace NodeEditor
         {
             OnValidate();
 
+            if (!theme)
+            {
+                Debug.LogWarning("Theme is null", this);
+            }
+
             if (rippleParent)
             {
-                if (Theme.active && Theme.active.button.rippleShape)
+                if (theme && theme.button.rippleShape)
                 {
                     rippleParent.SetActive(false);
                     return;
                 }
 
                 Destroy(rippleParent);
+                rippleParent = null;
             }
         }
 
@@ -135,8 +143,8 @@ namespace NodeEditor
 
         void UpdateTheme()
         {
-            if (Theme.active)
-                Theme.active.button.ApplyTo(this);
+            if (theme)
+                theme.button.ApplyTo(this);
         }
 
         public void OnPointerDown(PointerEventData eventData)
@@ -144,10 +152,13 @@ namespace NodeEditor
             if (!button.interactable || !IsInteractable() || !isHovering)
                 return;
 
-            if (!Theme.active || !Theme.active.button.rippleShape)
+            if (!theme || !theme.button.rippleShape || !rippleParent)
+            {
+                events.click.Invoke();
                 return;
+            }
 
-            Theme.active.button.CreateRipple(rippleParent, Input.mousePosition);
+            theme.button.CreateRipple(rippleParent, Input.mousePosition);
 
             if (lastClick + .2f <= Time.unscaledTime)
             {

@@ -18,6 +18,7 @@ namespace NodeEditor
             Button
         }
 
+        [SerializeField] Theme theme;
         [SerializeField] Type type;
 
         public Object[] objects;
@@ -27,7 +28,8 @@ namespace NodeEditor
             if (type == Type.None)
                 return;
 
-            var theme = Theme.active;
+            if (!theme)
+                theme = Theme.@default;
 
             if (type == Type.Window)
             {

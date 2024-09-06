@@ -31,7 +31,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3929139272513238690}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -111,7 +110,6 @@ RectTransform:
   - {fileID: 334044530312962315}
   - {fileID: 2276684561646821110}
   m_Father: {fileID: 4245042137871235055}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -200,7 +198,6 @@ RectTransform:
   - {fileID: 3406330758315440711}
   - {fileID: 6304163919381768588}
   m_Father: {fileID: 6314997801617539711}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -219,13 +216,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d711fbc5c4ae6374c91f293d9585c4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contextContent: {fileID: 491809404514381585}
-  contextButton: {fileID: 2934981049858405015, guid: 973eafd0c53826d44a0cc0357d66158b, type: 3}
-  contextSeparator: {fileID: 3111258497454059738, guid: 0c5ca18b61e250540b9ca0e106775d52, type: 3}
-  vBorderTop: -10
-  vBorderBottom: 10
-  hBorderLeft: 15
-  hBorderRight: -15
+  content: {fileID: 491809404514381585}
+  button: {fileID: 2934981049858405015, guid: 973eafd0c53826d44a0cc0357d66158b, type: 3}
+  separator: {fileID: 3111258497454059738, guid: 0c5ca18b61e250540b9ca0e106775d52, type: 3}
+  top: -10
+  bottom: 10
+  left: 15
+  right: -15
   isOn: 0
 --- !u!225 &5489719221000170145
 CanvasGroup:
@@ -241,7 +238,7 @@ CanvasGroup:
   m_IgnoreParentGroups: 0
 --- !u!95 &8359007611867711678
 Animator:
-  serializedVersion: 4
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -255,10 +252,12 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3229991121577074032
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +290,6 @@ RectTransform:
   - {fileID: 6567117964323707215}
   - {fileID: 7932222128318334339}
   m_Father: {fileID: 8513180016441336502}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -338,7 +336,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6304163919381768588}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -436,7 +433,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4245042137871235055}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -519,9 +515,9 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1570577485909711638}
-          m_TargetAssemblyTypeName: 
+          m_TargetAssemblyTypeName: NodeEditor.ContextMenuManager, NodeEditor
           m_MethodName: CloseOnClick
-          m_Mode: 1
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -565,7 +561,6 @@ RectTransform:
   - {fileID: 6314997801617539711}
   - {fileID: 3929139272513238690}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -684,7 +679,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6304163919381768588}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -778,7 +772,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6314997802270719215}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -814,7 +807,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6314997802270719215}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -853,7 +845,6 @@ RectTransform:
   - {fileID: 6314997802270719215}
   - {fileID: 4245042137871235055}
   m_Father: {fileID: 8513180016441336502}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -906,7 +897,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6314997802270719215}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1014,7 +1004,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8513180016441336502}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1071,7 +1060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff97be92bead9824f94ea750d5af9bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contexItems: []
+  items: []
 --- !u!114 &563498950666670908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,7 +1157,6 @@ RectTransform:
   - {fileID: 6314997801416836304}
   - {fileID: 6314997801146531957}
   m_Father: {fileID: 6314997801617539711}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1206,7 +1194,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3929139272513238690}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1283,7 +1270,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6304163919381768588}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
