@@ -8,7 +8,7 @@ namespace NodeEditor.DataRenderer2D.Editors
         [MenuItem("GameObject/2D Object/UI Line")]
         public static void CreateUILine()
         {
-            var canvas = Object.FindObjectOfType<Canvas>();
+            var canvas = Object.FindAnyObjectByType<Canvas>();
 
             if (!canvas)
             {
