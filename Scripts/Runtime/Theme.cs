@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace NodeEditor
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "Node Editor Theme")]
     public class Theme : ScriptableObject
     {
         static Theme[] themes = null;
